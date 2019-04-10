@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://adi0229.github.io/"/>
-  <updated>2019-04-02T13:52:56.997Z</updated>
+  <updated>2019-04-10T14:42:54.460Z</updated>
   <id>https://adi0229.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在Google Colab 中显示Plotly</title>
+    <link href="https://adi0229.github.io/2019/04/10/2019-04-10PlotlyColab/"/>
+    <id>https://adi0229.github.io/2019/04/10/2019-04-10PlotlyColab/</id>
+    <published>2019-04-10T14:42:57.000Z</published>
+    <updated>2019-04-10T14:42:54.460Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="在-Google-Colab-中显示-Plotly"><a href="#在-Google-Colab-中显示-Plotly" class="headerlink" title="在 Google Colab 中显示 Plotly"></a>在 Google Colab 中显示 Plotly</h1><h2 id="Python绘图可视化工具包-Plotly"><a href="#Python绘图可视化工具包-Plotly" class="headerlink" title="Python绘图可视化工具包-Plotly"></a>Python绘图可视化工具包-Plotly</h2><p>Plotly 能够绘制交互式的数据可视化图表，提供印刷品质的图表图片。</p><p> 近日，笔者在 colab 上使用 Plotly，遇到了一个小坑，需要运行特定函数，才能在 colab 上显示 Plotly 的交互图表。</p><p>解决代码分享：</p><p><a href="https://colab.research.google.com/drive/14oudHx5e5r7hm1QcbZ24FVHXgVPD0k8f" target="_blank" rel="external">Plotly in Colab.ipynb</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import plotly.plotly as py</div><div class="line">from plotly.offline import init_notebook_mode, iplot</div><div class="line"></div><div class="line"></div><div class="line">def configure_plotly_browser_state():</div><div class="line">  import IPython</div><div class="line">  display(IPython.core.display.HTML(&apos;&apos;&apos;</div><div class="line">        &lt;script src=&quot;/static/components/requirejs/require.js&quot;&gt;&lt;/script&gt;</div><div class="line">        &lt;script&gt;</div><div class="line">          requirejs.config(&#123;</div><div class="line">            paths: &#123;</div><div class="line">              base: &apos;/static/base&apos;,</div><div class="line">              plotly: &apos;https://cdn.plot.ly/plotly-latest.min.js?noext&apos;,</div><div class="line">            &#125;,</div><div class="line">          &#125;);</div><div class="line">        &lt;/script&gt;</div><div class="line">        &apos;&apos;&apos;))</div><div class="line"></div><div class="line">configure_plotly_browser_state()</div><div class="line">init_notebook_mode(connected=False)</div></pre></td></tr></table></figure><h1 id="changelog"><a href="#changelog" class="headerlink" title="changelog"></a>changelog</h1><p>2019.04.10 init</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;在-Google-Colab-中显示-Plotly&quot;&gt;&lt;a href=&quot;#在-Google-Colab-中显示-Plotly&quot; class=&quot;headerlink&quot; title=&quot;在 Google Colab 中显示 Plotly&quot;&gt;&lt;/a&gt;在 Google Co
+      
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://adi0229.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>人生是选择的总和——读《畅销的原理》</title>
