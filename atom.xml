@@ -41,8 +41,8 @@
   
   <entry>
     <title>2018 世界杯 -&gt; 看数据，猜全场最佳球员？机器学习可解释性 -&gt; 特征重要性</title>
-    <link href="https://adi0229.github.io/2019/06/24/2019-06-24-fifa18/"/>
-    <id>https://adi0229.github.io/2019/06/24/2019-06-24-fifa18/</id>
+    <link href="https://adi0229.github.io/2019/06/24/2019-06-24-fifa18eda/"/>
+    <id>https://adi0229.github.io/2019/06/24/2019-06-24-fifa18eda/</id>
     <published>2019-06-24T09:08:20.114Z</published>
     <updated>2019-06-24T09:16:48.272Z</updated>
     
@@ -64,8 +64,8 @@
   
   <entry>
     <title>百事可乐 Or 可口可乐？深度学习图片分类器部署</title>
-    <link href="https://adi0229.github.io/2019/06/18/2019-06-24-image-clf/"/>
-    <id>https://adi0229.github.io/2019/06/18/2019-06-24-image-clf/</id>
+    <link href="https://adi0229.github.io/2019/06/18/2019-06-24-cola-image-clf/"/>
+    <id>https://adi0229.github.io/2019/06/18/2019-06-24-cola-image-clf/</id>
     <published>2019-06-18T04:23:12.000Z</published>
     <updated>2019-06-24T09:38:57.557Z</updated>
     
@@ -88,8 +88,8 @@
   
   <entry>
     <title>在Google Colab 中显示Plotly</title>
-    <link href="https://adi0229.github.io/2019/04/10/2019-04-10PlotlyColab/"/>
-    <id>https://adi0229.github.io/2019/04/10/2019-04-10PlotlyColab/</id>
+    <link href="https://adi0229.github.io/2019/04/10/2019-04-10-plotlycolab/"/>
+    <id>https://adi0229.github.io/2019/04/10/2019-04-10-plotlycolab/</id>
     <published>2019-04-10T14:42:57.000Z</published>
     <updated>2019-04-10T14:42:54.460Z</updated>
     
@@ -110,9 +110,32 @@
   </entry>
   
   <entry>
+    <title>Python新手练习-PyBite</title>
+    <link href="https://adi0229.github.io/2019/03/02/2019-03-02-pybite/"/>
+    <id>https://adi0229.github.io/2019/03/02/2019-03-02-pybite/</id>
+    <published>2019-03-02T04:47:11.000Z</published>
+    <updated>2019-07-03T03:39:34.642Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Python新手练习-PyBite"><a href="#Python新手练习-PyBite" class="headerlink" title="Python新手练习-PyBite"></a>Python新手练习-PyBite</h2><h4 id="Bite-108-循环历遍可命名元祖计算总分-Loop-over-a-dict-of-namedtuples-calculating-a-total-score"><a href="#Bite-108-循环历遍可命名元祖计算总分-Loop-over-a-dict-of-namedtuples-calculating-a-total-score" class="headerlink" title="Bite 108 循环历遍可命名元祖计算总分(Loop over a dict of namedtuples calculating a total score)"></a>Bite 108 循环历遍可命名元祖计算总分(Loop over a dict of namedtuples calculating a total score)</h4><blockquote><p>有一个字典，字典中包含了不同颜色的pybite忍者腰带奖章，以及对应的分数及获得人数。需要构建一个函数，计算python所有忍者的总得分。</p></blockquote><p>知识点：</p><ul><li><code>collection</code> 的 <code>nametuple</code></li><li>列表推导式</li></ul><p>代码块</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">from collections import namedtuple</div><div class="line"></div><div class="line">BeltStats = namedtuple(&apos;BeltStats&apos;, &apos;score ninjas&apos;)</div><div class="line"></div><div class="line">ninja_belts = &#123;&apos;yellow&apos;: BeltStats(50, 11),</div><div class="line">               &apos;orange&apos;: BeltStats(100, 7),</div><div class="line">               &apos;green&apos;: BeltStats(175, 1),</div><div class="line">               &apos;blue&apos;: BeltStats(250, 5)&#125;</div><div class="line"></div><div class="line"></div><div class="line">def get_total_points(belts=ninja_belts):</div><div class="line">    &quot;&quot;&quot;Calculate the amount of points rewarded on PyBites given the</div><div class="line">       ninja_belts dictionary, formula: belt score x belt owners (aka ninjas)</div><div class="line">       (of course there are more points but let&apos;s keep it simple)</div><div class="line"></div><div class="line">       Make your code generic so if we update ninja_belts to include</div><div class="line">       more belts (which we do in the tests) it will still work.</div><div class="line"></div><div class="line">       Ah and you can get score and ninjas from the namedtuple with nice</div><div class="line">       attribute access: belt.score / belt.ninjas (reason why we get</div><div class="line">       you familiar with namedtuple here, because we love them and use</div><div class="line">       them all over the place!)</div><div class="line">       </div><div class="line">       Return the total number of points int from the function.&quot;&quot;&quot;</div><div class="line">       </div><div class="line">       total_points = 0</div><div class="line">    </div><div class="line">    for belt in belts.values():</div><div class="line">        scores = belt.score * belt.ninjas</div><div class="line">        total_points += scores</div><div class="line">    </div><div class="line">    return total_points</div></pre></td></tr></table></figure><p>列表推导式写法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">return sum([belt[0] * belt[1] for belt in belts.values()])</div></pre></td></tr></table></figure><h1 id="changelog"><a href="#changelog" class="headerlink" title="changelog"></a>changelog</h1><p>2019.03.02 init</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Python新手练习-PyBite&quot;&gt;&lt;a href=&quot;#Python新手练习-PyBite&quot; class=&quot;headerlink&quot; title=&quot;Python新手练习-PyBite&quot;&gt;&lt;/a&gt;Python新手练习-PyBite&lt;/h2&gt;&lt;h4 id=&quot;Bite-
+      
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://adi0229.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>人生是选择的总和——读《畅销的原理》</title>
-    <link href="https://adi0229.github.io/2019/01/17/2019-01-17-TheBusinessOfChoice/"/>
-    <id>https://adi0229.github.io/2019/01/17/2019-01-17-TheBusinessOfChoice/</id>
+    <link href="https://adi0229.github.io/2019/01/17/2019-01-17-thebusinessofchoice/"/>
+    <id>https://adi0229.github.io/2019/01/17/2019-01-17-thebusinessofchoice/</id>
     <published>2019-01-17T08:54:57.000Z</published>
     <updated>2019-04-02T13:52:56.997Z</updated>
     
@@ -134,8 +157,8 @@
   
   <entry>
     <title>队服撞衫？如何让AI区分相似球衣？</title>
-    <link href="https://adi0229.github.io/2019/01/04/2019-01-04-AISimilarShirt/"/>
-    <id>https://adi0229.github.io/2019/01/04/2019-01-04-AISimilarShirt/</id>
+    <link href="https://adi0229.github.io/2019/01/04/2019-01-04-aisimilarshirt/"/>
+    <id>https://adi0229.github.io/2019/01/04/2019-01-04-aisimilarshirt/</id>
     <published>2019-01-04T04:44:23.000Z</published>
     <updated>2019-04-06T13:49:26.760Z</updated>
     
@@ -158,8 +181,8 @@
   
   <entry>
     <title>碎碎念之树状笔记</title>
-    <link href="https://adi0229.github.io/2018/04/11/2018-04-11-Workflowy/"/>
-    <id>https://adi0229.github.io/2018/04/11/2018-04-11-Workflowy/</id>
+    <link href="https://adi0229.github.io/2018/04/11/2018-04-11-workflowy/"/>
+    <id>https://adi0229.github.io/2018/04/11/2018-04-11-workflowy/</id>
     <published>2018-04-10T16:54:57.000Z</published>
     <updated>2019-04-02T11:35:03.881Z</updated>
     
@@ -206,8 +229,8 @@
   
   <entry>
     <title>【译】站在20岁的尾巴上</title>
-    <link href="https://adi0229.github.io/2017/08/17/2015-07-31/"/>
-    <id>https://adi0229.github.io/2017/08/17/2015-07-31/</id>
+    <link href="https://adi0229.github.io/2017/08/17/2015-07-31-20tail/"/>
+    <id>https://adi0229.github.io/2017/08/17/2015-07-31-20tail/</id>
     <published>2017-08-17T04:14:57.000Z</published>
     <updated>2017-08-17T04:21:46.000Z</updated>
     
