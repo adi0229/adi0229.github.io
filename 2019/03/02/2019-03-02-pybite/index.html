@@ -103,7 +103,7 @@
 <meta property="og:url" content="https://adi0229.github.io/2019/03/02/2019-03-02-pybite/index.html">
 <meta property="og:site_name" content="电光石火">
 <meta property="og:description" content="Python新手练习-PyBiteBite 108 循环历遍可命名元祖计算总分(Loop over a dict of namedtuples calculating a total score) 有一个字典，字典中包含了不同颜色的pybite忍者腰带奖章，以及对应的分数及获得人数。需要构建一个函数，计算python所有忍者的总得分。  知识点：  collection 的 nametuple 列">
-<meta property="og:updated_time" content="2019-07-06T10:05:43.674Z">
+<meta property="og:updated_time" content="2019-07-11T06:01:49.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python新手练习-PyBite">
 <meta name="twitter:description" content="Python新手练习-PyBiteBite 108 循环历遍可命名元祖计算总分(Loop over a dict of namedtuples calculating a total score) 有一个字典，字典中包含了不同颜色的pybite忍者腰带奖章，以及对应的分数及获得人数。需要构建一个函数，计算python所有忍者的总得分。  知识点：  collection 的 nametuple 列">
@@ -355,7 +355,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-06 18:05:43" itemprop="dateModified" datetime="2019-07-06T18:05:43+08:00">2019-07-06</time>
+                <time title="修改时间：2019-07-11 14:01:49" itemprop="dateModified" datetime="2019-07-11T14:01:49+08:00">2019-07-11</time>
               
             
           </span>
@@ -421,9 +421,60 @@
 <li><code>ZeroDivisonError</code></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">def divide_numbers(numerator, denominator):</div><div class="line">    &quot;&quot;&quot;For this exercise you can assume numerator and denominator are of type</div><div class="line">       int/str/float.</div><div class="line">       Try to convert numerator and denominator to int types, if that raises a</div><div class="line">       ValueError reraise it. Following do the division and return the result.</div><div class="line">       However if denominator is 0 catch the corresponding exception Python</div><div class="line">       throws (cannot divide by 0), and return 0&quot;&quot;&quot;</div><div class="line">    try:</div><div class="line">        numerator = int(numerator)</div><div class="line">        denominator = int(denominator)</div><div class="line">    except ValueError:</div><div class="line">        raise</div><div class="line"></div><div class="line">    try:</div><div class="line">        return numerator / denominator</div><div class="line">    except ZeroDivisionError:</div><div class="line">        return 0</div></pre></td></tr></table></figure>
+<h4 id="Bite-8-调换字母顺序-Rotate-string-characters"><a href="#Bite-8-调换字母顺序-Rotate-string-characters" class="headerlink" title="Bite 8 调换字母顺序(Rotate string characters)"></a>Bite 8 调换字母顺序(Rotate string characters)</h4><blockquote>
+<ul>
+<li>输入：字符串string&amp;整数n</li>
+<li>计算：若整数大于0，则将前 n 个字母调换到末尾。/ 若整数小于0，则将后n 个字母调换到末尾。</li>
+<li>输出：调换后的字符串（rotated string）</li>
+</ul>
+</blockquote>
+<p>知识点</p>
+<ul>
+<li><code>slice</code>切片</li>
+<li><code>deque</code>双端队列</li>
+</ul>
+<p>代码测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Last login: Wed Jul 10 14:50:31 on ttys004</div><div class="line">adi0229 (adi0229 *) ~</div><div class="line"></div><div class="line">&gt;&gt;&gt; string = &apos;hello&apos;</div><div class="line">&gt;&gt;&gt; string[2:] + string[:2]</div><div class="line">&apos;llohe&apos;</div><div class="line">&gt;&gt;&gt; string[-2:] + string[:-2]</div><div class="line">&apos;lohel&apos;</div></pre></td></tr></table></figure>
+<p>解决代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">def rotate(string, n):</div><div class="line">    &quot;&quot;&quot;Rotate characters in a string.</div><div class="line">       Expects string and n (int) for number of characters to move.</div><div class="line">    &quot;&quot;&quot;</div><div class="line">    return string[n:] + string[:n]</div></pre></td></tr></table></figure>
+<h4 id="Bite-15-列举-2-个序列-Enumerate-2-sequence"><a href="#Bite-15-列举-2-个序列-Enumerate-2-sequence" class="headerlink" title="Bite 15 列举 2 个序列(Enumerate 2 sequence)"></a>Bite 15 列举 2 个序列(Enumerate 2 sequence)</h4><blockquote>
+<ul>
+<li>输入：2 个列表，包含名字和国家字段</li>
+<li>计算：列举2个列表的字段——名字和国家，根据索引位置，一一对应。</li>
+<li>输出：按照索引的数字顺序，打印出对应的列表字段。</li>
+</ul>
+</blockquote>
+<p>知识点</p>
+<ul>
+<li><code>enumerate</code>列举，枚举</li>
+<li><code>string formatting</code>字符串格式</li>
+</ul>
+<p>代码实例参考</p>
+<p><code>enumerate</code>列举，枚举</p>
+<p><a href="https://stackoverflow.com/questions/16326853/enumerate-two-python-lists-simultaneously/16326876" target="_blank" rel="external">https://stackoverflow.com/questions/16326853/enumerate-two-python-lists-simultaneously/16326876</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">for index, (value1, value2) in enumerate(zip(data1, data2)):</div><div class="line">    print index, value1 + value2</div></pre></td></tr></table></figure>
+<ul>
+<li><code>string formatting</code>字符串对齐</li>
+</ul>
+<p>在 <code>format</code>方法中，使用<code>&lt;</code>,<code>&gt;</code>,<code>^</code>等符号来指定左对齐、右对齐或者居中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; &quot;&#123;1:&lt;15&#125;&#123;0:^10&#125;&#123;2:&gt;15&#125;&quot;.format(center, left_aligned, right_aligned)</div><div class="line">&apos;Left Align      Centered     Right Align&apos;</div></pre></td></tr></table></figure>
+<p>python 3.6 的 <code>f-string</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; f&quot;&#123;left_aligned:&lt;15&#125;&#123;center:^10&#125;&#123;right_aligned:&gt;15&#125;&quot;</div><div class="line">&apos;Left Align      Centered     Right Align&apos;</div></pre></td></tr></table></figure>
+<p>代码测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Last login: Wed Jul 10 14:50:31 on ttys004</div><div class="line">adi0229 (adi0229 *) ~</div><div class="line"></div><div class="line">&gt;&gt;&gt; names = &apos;Julian Bob PyBites Dante Martin Rodolfo&apos;.split()</div><div class="line">&gt;&gt;&gt; countries = &apos;Australia Spain Global Argentina USA Mexico&apos;.split()</div><div class="line">&gt;&gt;&gt; names</div><div class="line">[&apos;Julian&apos;, &apos;Bob&apos;, &apos;PyBites&apos;, &apos;Dante&apos;, &apos;Martin&apos;, &apos;Rodolfo&apos;]</div><div class="line">&gt;&gt;&gt; countries</div><div class="line">[&apos;Australia&apos;, &apos;Spain&apos;, &apos;Global&apos;, &apos;Argentina&apos;, &apos;USA&apos;, &apos;Mexico&apos;]</div></pre></td></tr></table></figure>
+<p>解决代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">names = &apos;Julian Bob PyBites Dante Martin Rodolfo&apos;.split()</div><div class="line">countries = &apos;Australia Spain Global Argentina USA Mexico&apos;.split()</div><div class="line"></div><div class="line"></div><div class="line">def enumerate_names_countries():</div><div class="line">    &quot;&quot;&quot;Outputs:</div><div class="line">       1. Julian     Australia</div><div class="line">       2. Bob        Spain</div><div class="line">       3. PyBites    Global</div><div class="line">       4. Dante      Argentina</div><div class="line">       5. Martin     USA</div><div class="line">       6. Rodolfo    Mexico&quot;&quot;&quot;</div><div class="line">    for index, (name, country) in enumerate(zip(names, countries)):</div><div class="line">        print(&quot;&#123;0:&lt;3&#125;&#123;1:&lt;11&#125;&#123;2&#125;&quot;.format(str(index+1)+&apos;.&apos;,name,country))   </div><div class="line">        </div><div class="line">enumerate_names_countries()</div><div class="line"></div><div class="line">$ /Users/apple/anaconda3/envs/magenta/bin/python /Users/apple/Desktop/pybite_intro_08.py</div><div class="line">1. Julian     Australia</div><div class="line">2. Bob        Spain</div><div class="line">3. PyBites    Global</div><div class="line">4. Dante      Argentina</div><div class="line">5. Martin     USA</div><div class="line">6. Rodolfo    Mexico</div></pre></td></tr></table></figure>
+<p>思路：</p>
+<ul>
+<li><code>zip</code>打包，name和 country2 个可迭代的列表对象</li>
+<li>在 for 循环中，<code>enumerate</code>组合成索引序列</li>
+<li><code>format</code>指定第二个位置左对齐 11 个chars。第一个位置是调试出来的，字符串的间距3chars？</li>
+</ul>
 <h1 id="changelog"><a href="#changelog" class="headerlink" title="changelog"></a>changelog</h1><p>2019.03.02 init pybite108</p>
 <p>2019.03.05 update pybite109</p>
 <p>2019.03.08 update pybite110</p>
+<p>2019.03.12 update pybite8</p>
+<p>2019.03.15 update pybite15</p>
 
       
     </div>
@@ -643,7 +694,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python新手练习-PyBite"><span class="nav-number">1.</span> <span class="nav-text">Python新手练习-PyBite</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-108-循环历遍可命名元祖计算总分-Loop-over-a-dict-of-namedtuples-calculating-a-total-score"><span class="nav-number">1.0.1.</span> <span class="nav-text">Bite 108 循环历遍可命名元祖计算总分(Loop over a dict of namedtuples calculating a total score)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-109-健身字典查询及抛出异常-Workout-dict-lookups-and-raising-an-exception"><span class="nav-number">1.0.2.</span> <span class="nav-text">Bite 109 健身字典查询及抛出异常(Workout dict lookups and raising an exception)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-110-类型转换-amp-处理异常-Type-conversion-and-exception-handling"><span class="nav-number">1.0.3.</span> <span class="nav-text">Bite 110 类型转换&处理异常(Type conversion and exception handling)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#changelog"><span class="nav-number"></span> <span class="nav-text">changelog</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python新手练习-PyBite"><span class="nav-number">1.</span> <span class="nav-text">Python新手练习-PyBite</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-108-循环历遍可命名元祖计算总分-Loop-over-a-dict-of-namedtuples-calculating-a-total-score"><span class="nav-number">1.0.1.</span> <span class="nav-text">Bite 108 循环历遍可命名元祖计算总分(Loop over a dict of namedtuples calculating a total score)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-109-健身字典查询及抛出异常-Workout-dict-lookups-and-raising-an-exception"><span class="nav-number">1.0.2.</span> <span class="nav-text">Bite 109 健身字典查询及抛出异常(Workout dict lookups and raising an exception)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-110-类型转换-amp-处理异常-Type-conversion-and-exception-handling"><span class="nav-number">1.0.3.</span> <span class="nav-text">Bite 110 类型转换&处理异常(Type conversion and exception handling)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-8-调换字母顺序-Rotate-string-characters"><span class="nav-number">1.0.4.</span> <span class="nav-text">Bite 8 调换字母顺序(Rotate string characters)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-15-列举-2-个序列-Enumerate-2-sequence"><span class="nav-number">1.0.5.</span> <span class="nav-text">Bite 15 列举 2 个序列(Enumerate 2 sequence)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#changelog"><span class="nav-number"></span> <span class="nav-text">changelog</span></a></div>
             
 
           </div>
