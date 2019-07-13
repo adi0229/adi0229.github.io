@@ -103,7 +103,7 @@
 <meta property="og:url" content="https://adi0229.github.io/2019/03/02/2019-03-02-pybite/index.html">
 <meta property="og:site_name" content="电光石火">
 <meta property="og:description" content="Python新手练习-PyBiteBite 108 循环历遍可命名元祖计算总分(Loop over a dict of namedtuples calculating a total score) 有一个字典，字典中包含了不同颜色的pybite忍者腰带奖章，以及对应的分数及获得人数。需要构建一个函数，计算python所有忍者的总得分。  知识点：  collection 的 nametuple 列">
-<meta property="og:updated_time" content="2019-07-11T06:02:51.132Z">
+<meta property="og:updated_time" content="2019-07-12T11:45:35.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python新手练习-PyBite">
 <meta name="twitter:description" content="Python新手练习-PyBiteBite 108 循环历遍可命名元祖计算总分(Loop over a dict of namedtuples calculating a total score) 有一个字典，字典中包含了不同颜色的pybite忍者腰带奖章，以及对应的分数及获得人数。需要构建一个函数，计算python所有忍者的总得分。  知识点：  collection 的 nametuple 列">
@@ -355,7 +355,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-11 14:02:51" itemprop="dateModified" datetime="2019-07-11T14:02:51+08:00">2019-07-11</time>
+                <time title="修改时间：2019-07-12 19:45:35" itemprop="dateModified" datetime="2019-07-12T19:45:35+08:00">2019-07-12</time>
               
             
           </span>
@@ -470,6 +470,36 @@
 <li>在 for 循环中，<code>enumerate</code>组合成索引序列</li>
 <li><code>format</code>指定第二个位置左对齐 11 个chars。第一个位置是调试出来的，字符串的间距3chars？</li>
 </ul>
+<h4 id="Bite-16-PyBite日期生成器-PyBites-date-generator"><a href="#Bite-16-PyBite日期生成器-PyBites-date-generator" class="headerlink" title="Bite 16 PyBite日期生成器(PyBites date generator)"></a>Bite 16 PyBite日期生成器(PyBites date generator)</h4><blockquote>
+<ul>
+<li>输入：2 个列表，包含名字和国家字段</li>
+<li>计算：  每年每一百天</li>
+<li>输出：</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">import datetime</div><div class="line">from itertools import islice</div><div class="line"></div><div class="line">from gendates import gen_special_pybites_dates</div><div class="line"></div><div class="line"></div><div class="line">def test_gen_special_pybites_dates():</div><div class="line">    gen = gen_special_pybites_dates()</div><div class="line">    dates = list(islice(gen, 100))</div><div class="line"></div><div class="line">    expected = [datetime.datetime(2017, 3, 29, 0, 0),</div><div class="line">                datetime.datetime(2017, 7, 7, 0, 0),</div><div class="line">                datetime.datetime(2017, 10, 15, 0, 0),</div><div class="line">                datetime.datetime(2017, 12, 19, 0, 0),</div><div class="line">                datetime.datetime(2018, 1, 23, 0, 0),</div><div class="line">                datetime.datetime(2018, 5, 3, 0, 0),</div><div class="line">                datetime.datetime(2018, 8, 11, 0, 0),</div><div class="line">                datetime.datetime(2018, 11, 19, 0, 0),</div><div class="line">                datetime.datetime(2018, 12, 19, 0, 0),</div><div class="line">                datetime.datetime(2019, 2, 27, 0, 0)]</div><div class="line"></div><div class="line">    assert dates[:10] == expected</div></pre></td></tr></table></figure>
+<p>知识点</p>
+<ul>
+<li><code>islice</code></li>
+</ul>
+<p><a href="http://funhacks.net/2017/02/13/itertools/" target="_blank" rel="external">http://funhacks.net/2017/02/13/itertools/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">islice(iterable, [start,] stop [, step])</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; from itertools import count, islice</div><div class="line">&gt;&gt;&gt;</div><div class="line">&gt;&gt;&gt; list(islice([10, 6, 2, 8, 1, 3, 9], 5))</div><div class="line">[10, 6, 2, 8, 1]</div><div class="line">&gt;&gt;&gt;</div><div class="line">&gt;&gt;&gt; list(islice(count(), 6))</div><div class="line">[0, 1, 2, 3, 4, 5]</div><div class="line">&gt;&gt;&gt;</div><div class="line">&gt;&gt;&gt; list(islice(count(), 3, 10))</div><div class="line">[3, 4, 5, 6, 7, 8, 9]</div><div class="line">&gt;&gt;&gt; list(islice(count(), 3, 10 ,2))</div><div class="line">[3, 5, 7, 9]</div></pre></td></tr></table></figure>
+<p>关于<code>itertool</code>里的<code>count</code></p>
+<p>官方文档：<a href="https://docs.python.org/zh-cn/3/library/itertools.html#itertools.count" target="_blank" rel="external">https://docs.python.org/zh-cn/3/library/itertools.html#itertools.count</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">def count(start=0, step=1):</div><div class="line">    # count(10) --&gt; 10 11 12 13 14 ...</div><div class="line">    # count(2.5, 0.5) -&gt; 2.5 3.0 3.5 ...</div><div class="line">    n = start</div><div class="line">    while True:</div><div class="line">        yield n</div><div class="line">        n += step</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">itertools.count(start=0, step=1)</div></pre></td></tr></table></figure>
+<p>可见，count()返回 0 开头，1 为步长的序列。</p>
+<p>上面的代码块，最后一行代码解读，count()返回一个可迭代对象（），开始索引是 3，结束索引 10，step 步长是 2。<br>所以，加上list()之后，输出是[3,5,7,9]</p>
+<p><code>datetime.datetime</code></p>
+<p><a href="https://docs.python.org/3/library/datetime.html" target="_blank" rel="external">https://docs.python.org/3/library/datetime.html</a></p>
+<p>一个<code>datetime</code>对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class datetime.datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)</div></pre></td></tr></table></figure>
+<p>年月日是必需参数。测试脚本里的 2 个0，指的是小时hour和分钟minute</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">from datetime import datetime</div><div class="line"></div><div class="line">PYBITES_BORN = datetime(year=2016, month=12, day=19)</div><div class="line"></div><div class="line"></div><div class="line">def gen_special_pybites_dates():</div><div class="line">    pass</div></pre></td></tr></table></figure>
+<p><code>datetime</code></p>
+<p><a href="https://www.guru99.com/date-time-and-datetime-classes-in-python.html#5" target="_blank" rel="external">https://www.guru99.com/date-time-and-datetime-classes-in-python.html#5</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; from datetime import datetime</div><div class="line">&gt;&gt;&gt; datetime.today()</div><div class="line">datetime.datetime(2019, 7, 12, 19, 27, 59, 688655)</div><div class="line">&gt;&gt;&gt; from datetime import timedelta</div><div class="line">&gt;&gt;&gt; timedelta(days=100)</div><div class="line">datetime.timedelta(100)</div><div class="line">&gt;&gt;&gt; datetime.timedelta(100)</div></pre></td></tr></table></figure>
 <h1 id="changelog"><a href="#changelog" class="headerlink" title="changelog"></a>changelog</h1><p>2019.03.02 init pybite108</p>
 <p>2019.03.05 update pybite109</p>
 <p>2019.03.08 update pybite110</p>
@@ -694,7 +724,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python新手练习-PyBite"><span class="nav-number">1.</span> <span class="nav-text">Python新手练习-PyBite</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-108-循环历遍可命名元祖计算总分-Loop-over-a-dict-of-namedtuples-calculating-a-total-score"><span class="nav-number">1.0.1.</span> <span class="nav-text">Bite 108 循环历遍可命名元祖计算总分(Loop over a dict of namedtuples calculating a total score)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-109-健身字典查询及抛出异常-Workout-dict-lookups-and-raising-an-exception"><span class="nav-number">1.0.2.</span> <span class="nav-text">Bite 109 健身字典查询及抛出异常(Workout dict lookups and raising an exception)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-110-类型转换-amp-处理异常-Type-conversion-and-exception-handling"><span class="nav-number">1.0.3.</span> <span class="nav-text">Bite 110 类型转换&处理异常(Type conversion and exception handling)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-8-调换字母顺序-Rotate-string-characters"><span class="nav-number">1.0.4.</span> <span class="nav-text">Bite 8 调换字母顺序(Rotate string characters)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-15-列举-2-个序列-Enumerate-2-sequence"><span class="nav-number">1.0.5.</span> <span class="nav-text">Bite 15 列举 2 个序列(Enumerate 2 sequence)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#changelog"><span class="nav-number"></span> <span class="nav-text">changelog</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python新手练习-PyBite"><span class="nav-number">1.</span> <span class="nav-text">Python新手练习-PyBite</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-108-循环历遍可命名元祖计算总分-Loop-over-a-dict-of-namedtuples-calculating-a-total-score"><span class="nav-number">1.0.1.</span> <span class="nav-text">Bite 108 循环历遍可命名元祖计算总分(Loop over a dict of namedtuples calculating a total score)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-109-健身字典查询及抛出异常-Workout-dict-lookups-and-raising-an-exception"><span class="nav-number">1.0.2.</span> <span class="nav-text">Bite 109 健身字典查询及抛出异常(Workout dict lookups and raising an exception)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-110-类型转换-amp-处理异常-Type-conversion-and-exception-handling"><span class="nav-number">1.0.3.</span> <span class="nav-text">Bite 110 类型转换&处理异常(Type conversion and exception handling)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-8-调换字母顺序-Rotate-string-characters"><span class="nav-number">1.0.4.</span> <span class="nav-text">Bite 8 调换字母顺序(Rotate string characters)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-15-列举-2-个序列-Enumerate-2-sequence"><span class="nav-number">1.0.5.</span> <span class="nav-text">Bite 15 列举 2 个序列(Enumerate 2 sequence)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bite-16-PyBite日期生成器-PyBites-date-generator"><span class="nav-number">1.0.6.</span> <span class="nav-text">Bite 16 PyBite日期生成器(PyBites date generator)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#changelog"><span class="nav-number"></span> <span class="nav-text">changelog</span></a></div>
             
 
           </div>
