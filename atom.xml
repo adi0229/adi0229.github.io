@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://adi0229.github.io/"/>
-  <updated>2019-08-28T14:58:47.013Z</updated>
+  <updated>2019-11-26T15:26:21.138Z</updated>
   <id>https://adi0229.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub+PicGo个人图床配置记录</title>
+    <link href="https://adi0229.github.io/2019/11/25/2019-11-25-cloudimg/"/>
+    <id>https://adi0229.github.io/2019/11/25/2019-11-25-cloudimg/</id>
+    <published>2019-11-25T13:26:56.000Z</published>
+    <updated>2019-11-26T15:26:21.138Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>最近，笔者的GitHubPage博客，图片挂了不少，于是尝试使用 GitHub 图床，来满足Markdown 格式下的图片存储和上传的稳定，记录如下。<br>图床一般是指储存图片的服务器，写文章时，使用 markdown 格式来插图，需要传入图片地址，这时，将图片上传到图床服务器，获得链接，就可以粘贴在自己的博文里，别人可以访问到了。<br>图床使用指南 -&gt; <a href="[https://sspai.com/post/40499](https://sspai.com/post/40499">少数派-嗯，图片就交给它了</a><br>)</p></blockquote><h1 id="创建GitHub图床"><a href="#创建GitHub图床" class="headerlink" title="创建GitHub图床"></a>创建GitHub图床</h1><p>首先，登录GitHub 账号，点击右上角头像左侧的“+”号图标，点击【新建仓库】（New Repository）<br><img src="https://raw.githubusercontent.com/adi0229/cloudimg/master/imgs/20191125224938.jpg" alt=""><br>勾选【公共仓库】&amp;【初始化 README】选项，创建仓库。<br><img src="https://raw.githubusercontent.com/adi0229/cloudimg/master/imgs/20191125224928.jpg" alt=""><br>点击右上角头像图标，点击【设置】（Settings）。<br><img src="https://raw.githubusercontent.com/adi0229/cloudimg/master/imgs/20191125224919.jpg" alt=""><br><img src="https://raw.githubusercontent.com/adi0229/cloudimg/master/imgs/20191125224908.jpg" alt=""></p><p>点击左侧导航的【开发者设置】（Developer settings），点击【个人连接密匙】（Personal access tokens）。<br><img src="https://raw.githubusercontent.com/adi0229/cloudimg/master/imgs/20191125224849.jpg" alt=""></p><p> 填写【注释】（note），再勾选【仓库】（ repo），点击【生成密匙】（Generate Token）。</p><p><img src="https://raw.githubusercontent.com/adi0229/cloudimg/master/imgs/20191125224843.jpg" alt=""></p><p>注意：生成Token后马上安全存储起来，因为它是“阅后即焚”。</p><h1 id="PicGo图片上传管理工具"><a href="#PicGo图片上传管理工具" class="headerlink" title="PicGo图片上传管理工具"></a>PicGo图片上传管理工具</h1><p>PicGo介绍：<a href="https://sspai.com/post/42310" target="_blank" rel="external">PicGo：基于 Electron 的图片上传工具</a></p><p>下载：<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="external">PicGo</a>，安装并打开 PicGo。</p><p><img src="https://raw.githubusercontent.com/adi0229/cloudimg/master/imgs/20191125224832.jpg" alt=""><br><img src="https://raw.githubusercontent.com/adi0229/cloudimg/master/imgs/20191125224554.jpg" alt=""></p><p>在左侧抽屉导航栏，点击【GitHub 图床】，然后根据图示设置自己的参数，点击确定。</p><p>自定义域名：<a href="https://raw.githubusercontent.com/[username]/[仓库名]/master" target="_blank" rel="external">https://raw.githubusercontent.com/[username]/[仓库名]/master</a></p><p>接下来，就可以上传图片，贴到博客文章里了。</p><h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p><a href="https://blog.csdn.net/yefcion/article/details/88412025" target="_blank" rel="external">CSDN：PicGo + GitHub 搭建个人图床工具</a></p><h1 id="changelog"><a href="#changelog" class="headerlink" title="changelog"></a>changelog</h1><p>19.11.25 init 1h </p><p>19.11.26 增加一些参考链接 0.2h </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;最近，笔者的GitHubPage博客，图片挂了不少，于是尝试使用 GitHub 图床，来满足Markdown 格式下的图片存储和上传的稳定，记录如下。&lt;br&gt;图床一般是指储存图片的服务器，写文章时，使用 markdown 格式来插图，需要传入图片地
+      
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="https://adi0229.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>AI编剧续写《老友记》-- 基于 GPT2 开源版</title>
