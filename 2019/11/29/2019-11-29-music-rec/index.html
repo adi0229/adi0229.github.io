@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="音乐推荐引擎创建虚拟venv环境，安装所有依赖项 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电光石火">
+<meta property="og:url" content="https://adi0229.github.io/2019/11/29/2019-11-29-music-rec/index.html">
+<meta property="og:site_name" content="电光石火">
+<meta property="og:description" content="音乐推荐引擎创建虚拟venv环境，安装所有依赖项 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192">
+<meta property="og:image" content="https://raw.githubusercontent.com/adi0229/cloudimg/master/imgs/20191129163219.png">
+<meta property="og:updated_time" content="2019-11-29T12:02:15.131Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="电光石火">
+<meta name="twitter:description" content="音乐推荐引擎创建虚拟venv环境，安装所有依赖项 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/adi0229/cloudimg/master/imgs/20191129163219.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="电光石火" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://adi0229.github.io/2019/11/29/2019-11-29-music-rec/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | 电光石火</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">电光石火</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">阿迪的博客</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://adi0229.github.io/2019/11/29/2019-11-29-music-rec/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Author"/>
+      <meta itemprop="description" content="The journey is the reward."/>
+      <meta itemprop="image" content="/images/avatar.png"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="电光石火"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-29 16:41:20 / 修改时间：20:02:15" itemprop="dateCreated datePublished" datetime="2019-11-29T16:41:20+08:00">2019-11-29</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="音乐推荐引擎"><a href="#音乐推荐引擎" class="headerlink" title="音乐推荐引擎"></a>音乐推荐引擎</h1><h2 id="创建虚拟venv环境，安装所有依赖项"><a href="#创建虚拟venv环境，安装所有依赖项" class="headerlink" title="创建虚拟venv环境，安装所有依赖项"></a>创建虚拟venv环境，安装所有依赖项</h2><p><img src="https://raw.githubusercontent.com/adi0229/cloudimg/master/imgs/20191129163219.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div><div class="line">359</div><div class="line">360</div><div class="line">361</div><div class="line">362</div><div class="line">363</div><div class="line">364</div><div class="line">365</div><div class="line">366</div><div class="line">367</div><div class="line">368</div><div class="line">369</div><div class="line">370</div><div class="line">371</div><div class="line">372</div><div class="line">373</div><div class="line">374</div><div class="line">375</div><div class="line">376</div><div class="line">377</div><div class="line">378</div><div class="line">379</div><div class="line">380</div><div class="line">381</div><div class="line">382</div><div class="line">383</div><div class="line">384</div><div class="line">385</div><div class="line">386</div><div class="line">387</div><div class="line">388</div><div class="line">389</div><div class="line">390</div><div class="line">391</div><div class="line">392</div><div class="line">393</div><div class="line">394</div><div class="line">395</div><div class="line">396</div><div class="line">397</div><div class="line">398</div><div class="line">399</div><div class="line">400</div><div class="line">401</div><div class="line">402</div><div class="line">403</div><div class="line">404</div><div class="line">405</div><div class="line">406</div><div class="line">407</div><div class="line">408</div><div class="line">409</div><div class="line">410</div><div class="line">411</div><div class="line">412</div><div class="line">413</div><div class="line">414</div><div class="line">415</div><div class="line">416</div><div class="line">417</div><div class="line">418</div><div class="line">419</div><div class="line">420</div><div class="line">421</div><div class="line">422</div><div class="line">423</div><div class="line">424</div><div class="line">425</div><div class="line">426</div><div class="line">427</div><div class="line">428</div><div class="line">429</div><div class="line">430</div><div class="line">431</div><div class="line">432</div><div class="line">433</div><div class="line">434</div><div class="line">435</div><div class="line">436</div><div class="line">437</div><div class="line">438</div><div class="line">439</div><div class="line">440</div><div class="line">441</div><div class="line">442</div><div class="line">443</div><div class="line">444</div><div class="line">445</div><div class="line">446</div><div class="line">447</div><div class="line">448</div><div class="line">449</div><div class="line">450</div><div class="line">451</div><div class="line">452</div><div class="line">453</div><div class="line">454</div><div class="line">455</div><div class="line">456</div><div class="line">457</div><div class="line">458</div><div class="line">459</div><div class="line">460</div><div class="line">461</div><div class="line">462</div><div class="line">463</div><div class="line">464</div><div class="line">465</div><div class="line">466</div><div class="line">467</div><div class="line">468</div><div class="line">469</div><div class="line">470</div><div class="line">471</div><div class="line">472</div><div class="line">473</div><div class="line">474</div><div class="line">475</div><div class="line">476</div><div class="line">477</div><div class="line">478</div><div class="line">479</div><div class="line">480</div><div class="line">481</div><div class="line">482</div><div class="line">483</div><div class="line">484</div><div class="line">485</div><div class="line">486</div><div class="line">487</div><div class="line">488</div><div class="line">489</div><div class="line">490</div><div class="line">491</div><div class="line">492</div><div class="line">493</div><div class="line">494</div><div class="line">495</div><div class="line">496</div><div class="line">497</div><div class="line">498</div><div class="line">499</div><div class="line">500</div><div class="line">501</div><div class="line">502</div><div class="line">503</div><div class="line">504</div><div class="line">505</div><div class="line">506</div><div class="line">507</div><div class="line">508</div><div class="line">509</div><div class="line">510</div><div class="line">511</div><div class="line">512</div><div class="line">513</div><div class="line">514</div><div class="line">515</div><div class="line">516</div><div class="line">517</div><div class="line">518</div><div class="line">519</div><div class="line">520</div><div class="line">521</div><div class="line">522</div><div class="line">523</div><div class="line">524</div><div class="line">525</div><div class="line">526</div><div class="line">527</div><div class="line">528</div><div class="line">529</div><div class="line">530</div><div class="line">531</div><div class="line">532</div><div class="line">533</div><div class="line">534</div><div class="line">535</div><div class="line">536</div><div class="line">537</div><div class="line">538</div><div class="line">539</div><div class="line">540</div><div class="line">541</div><div class="line">542</div><div class="line">543</div><div class="line">544</div><div class="line">545</div><div class="line">546</div><div class="line">547</div><div class="line">548</div><div class="line">549</div><div class="line">550</div><div class="line">551</div><div class="line">552</div><div class="line">553</div><div class="line">554</div><div class="line">555</div><div class="line">556</div><div class="line">557</div><div class="line">558</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">/usr/local/bin/python3 /Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec/manage.py</div><div class="line">adi0229 MusicRec</div><div class="line">$ /usr/local/bin/python3 /Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec/manage.py</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec/manage.py&quot;, line 8, in &lt;module&gt;</div><div class="line">    from django.core.management import execute_from_command_line</div><div class="line">ModuleNotFoundError: No module named &apos;django&apos;</div><div class="line"></div><div class="line">The above exception was the direct cause of the following exception:</div><div class="line"></div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec/manage.py&quot;, line 14, in &lt;module&gt;</div><div class="line">    ) from exc</div><div class="line">ImportError: Couldn&apos;t import Django. Are you sure it&apos;s installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?</div><div class="line">adi0229 MusicRec</div><div class="line">$ pip list</div><div class="line">Package                            Version      </div><div class="line">---------------------------------- -------------</div><div class="line">absl-py                            0.8.1        </div><div class="line">alabaster                          0.7.12       </div><div class="line">alembic                            1.0.10       </div><div class="line">anaconda-client                    1.7.2        </div><div class="line">anaconda-navigator                 1.9.6        </div><div class="line">anaconda-project                   0.8.2        </div><div class="line">appnope                            0.1.0        </div><div class="line">appscript                          1.0.1        </div><div class="line">APScheduler                        3.6.1        </div><div class="line">asn1crypto                         0.24.0       </div><div class="line">astor                              0.7.1        </div><div class="line">astroid                            2.1.0        </div><div class="line">astropy                            1.3.2        </div><div class="line">atomicwrites                       1.2.1        </div><div class="line">attrs                              18.2.0       </div><div class="line">audioread                          2.1.6        </div><div class="line">Automat                            0.6.0        </div><div class="line">awscli                             1.16.169     </div><div class="line">Babel                              2.6.0        </div><div class="line">backcall                           0.1.0        </div><div class="line">backports.os                       0.1.1        </div><div class="line">backports.shutil-get-terminal-size 1.0.0        </div><div class="line">backports.tempfile                 1.0          </div><div class="line">backports.weakref                  1.0.post1    </div><div class="line">bcolz                              1.1.2        </div><div class="line">beautifulsoup4                     4.6.3        </div><div class="line">bitarray                           0.8.3        </div><div class="line">blaze                              0.10.1       </div><div class="line">bleach                             3.0.2        </div><div class="line">bokeh                              1.0.3        </div><div class="line">boto                               2.49.0       </div><div class="line">boto3                              1.9.156      </div><div class="line">botocore                           1.12.159     </div><div class="line">Bottleneck                         1.2.1        </div><div class="line">certifi                            2019.3.9     </div><div class="line">cffi                               1.11.5       </div><div class="line">chardet                            3.0.4        </div><div class="line">Click                              7.0          </div><div class="line">clickclick                         1.2.2        </div><div class="line">cliff                              2.8.0        </div><div class="line">cloudpickle                        0.6.1        </div><div class="line">clyent                             1.2.2        </div><div class="line">cmd2                               0.8.0        </div><div class="line">colorama                           0.3.9        </div><div class="line">conda                              4.6.14       </div><div class="line">ConfigArgParse                     0.12.0       </div><div class="line">configparser                       3.5.0        </div><div class="line">connexion                          2.2.0        </div><div class="line">constantly                         15.1.0       </div><div class="line">contextlib2                        0.5.5        </div><div class="line">coremltools                        3.0b2        </div><div class="line">coursera-dl                        0.9.0        </div><div class="line">cryptography                       2.7          </div><div class="line">cssselect                          1.0.1        </div><div class="line">cycler                             0.10.0       </div><div class="line">cymem                              2.0.2        </div><div class="line">Cython                             0.29.2       </div><div class="line">cytoolz                            0.9.0.1      </div><div class="line">dask                               1.0.0        </div><div class="line">dataclasses                        0.6          </div><div class="line">datashape                          0.5.4        </div><div class="line">decorator                          4.3.0        </div><div class="line">defusedxml                         0.5.0        </div><div class="line">dill                               0.2.8.2      </div><div class="line">DingtalkChatbot                    1.3.0        </div><div class="line">distributed                        1.25.1       </div><div class="line">dj-database-url                    0.5.0        </div><div class="line">Django                             2.1.7        </div><div class="line">django-heroku                      0.3.1        </div><div class="line">docopt                             0.6.2        </div><div class="line">docutils                           0.14         </div><div class="line">dominate                           2.3.5        </div><div class="line">en-core-web-sm                     2.0.0        </div><div class="line">entrypoints                        0.2.3        </div><div class="line">enum34                             1.1.6        </div><div class="line">et-xmlfile                         1.0.1        </div><div class="line">fastai                             1.0.39       </div><div class="line">fastcache                          1.0.2        </div><div class="line">fastprogress                       0.1.18       </div><div class="line">fbchat                             1.3.9        </div><div class="line">feather-format                     0.4.0        </div><div class="line">first                              2.0.1        </div><div class="line">Flask                              1.0.2        </div><div class="line">Flask-Bootstrap                    3.3.7.1      </div><div class="line">Flask-Cors                         3.0.7        </div><div class="line">Flask-Login                        0.4.1        </div><div class="line">Flask-Migrate                      2.5.1        </div><div class="line">Flask-SQLAlchemy                   2.4.0        </div><div class="line">Flask-WTF                          0.14.2       </div><div class="line">future                             0.16.0       </div><div class="line">gast                               0.2.2        </div><div class="line">gevent                             1.3.7        </div><div class="line">gmpy2                              2.0.8        </div><div class="line">google-images-download             2.5.0        </div><div class="line">google-pasta                       0.1.8        </div><div class="line">graphviz                           0.8.2        </div><div class="line">greenlet                           0.4.15       </div><div class="line">grpcio                             1.16.1       </div><div class="line">gunicorn                           19.7.1       </div><div class="line">h5py                               2.9.0        </div><div class="line">heapdict                           1.0.0        </div><div class="line">html5lib                           1.0.1        </div><div class="line">hyperlink                          17.3.1       </div><div class="line">idna                               2.8          </div><div class="line">imageio                            2.5.0        </div><div class="line">imagesize                          1.1.0        </div><div class="line">importlib-metadata                 0.6          </div><div class="line">incremental                        17.5.0       </div><div class="line">inflection                         0.3.1        </div><div class="line">intervaltree                       3.0.2        </div><div class="line">ipykernel                          5.1.0        </div><div class="line">ipython                            7.2.0        </div><div class="line">ipython-genutils                   0.2.0        </div><div class="line">ipywidgets                         7.4.2        </div><div class="line">isort                              4.3.4        </div><div class="line">isoweek                            1.3.3        </div><div class="line">itchat                             1.2.32       </div><div class="line">itsdangerous                       1.1.0        </div><div class="line">jdcal                              1.4          </div><div class="line">jedi                               0.13.2       </div><div class="line">jieba                              0.39         </div><div class="line">Jinja2                             2.10         </div><div class="line">jmespath                           0.9.3        </div><div class="line">joblib                             0.13.2       </div><div class="line">jsonschema                         2.6.0        </div><div class="line">jupyter                            1.0.0        </div><div class="line">jupyter-client                     5.2.4        </div><div class="line">jupyter-console                    6.0.0        </div><div class="line">jupyter-contrib-core               0.3.3        </div><div class="line">jupyter-contrib-nbextensions       0.4.0        </div><div class="line">jupyter-core                       4.4.0        </div><div class="line">jupyter-highlight-selected-word    0.1.0        </div><div class="line">jupyter-latex-envs                 1.4.1        </div><div class="line">jupyter-nbextensions-configurator  0.4.0        </div><div class="line">kaggle                             1.5.1.1      </div><div class="line">kaggle-cli                         0.12.13      </div><div class="line">Keras                              2.2.4        </div><div class="line">Keras-Applications                 1.0.8        </div><div class="line">Keras-Preprocessing                1.0.5        </div><div class="line">keras2onnx                         1.5.0        </div><div class="line">keyring                            17.0.0       </div><div class="line">kiwisolver                         1.0.1        </div><div class="line">Lasagne                            0.2.dev1     </div><div class="line">lazy-object-proxy                  1.3.1        </div><div class="line">lightgbm                           2.1.2        </div><div class="line">llvmlite                           0.27.0       </div><div class="line">locket                             0.2.0        </div><div class="line">lxml                               4.2.5        </div><div class="line">Mako                               1.0.10       </div><div class="line">Markdown                           3.0.1        </div><div class="line">MarkupSafe                         1.1.0        </div><div class="line">matplotlib                         3.0.2        </div><div class="line">mccabe                             0.6.1        </div><div class="line">MechanicalSoup                     0.8.0        </div><div class="line">mido                               1.2.6        </div><div class="line">mistune                            0.8.4        </div><div class="line">mizani                             0.4.4        </div><div class="line">mock                               3.0.5        </div><div class="line">more-itertools                     4.3.0        </div><div class="line">mpmath                             1.1.0        </div><div class="line">msgpack                            0.5.6        </div><div class="line">msgpack-numpy                      0.4.3.2      </div><div class="line">msgpack-python                     0.5.6        </div><div class="line">multipledispatch                   0.6.0        </div><div class="line">murmurhash                         1.0.1        </div><div class="line">musdb                              0.3.1        </div><div class="line">museval                            0.3.0        </div><div class="line">mutagen                            1.42.0       </div><div class="line">navigator-updater                  0.2.1        </div><div class="line">nb-conda                           2.2.1        </div><div class="line">nb-conda-kernels                   2.2.0        </div><div class="line">nbconvert                          5.4.0        </div><div class="line">nbformat                           4.4.0        </div><div class="line">networkx                           2.2          </div><div class="line">nltk                               3.4          </div><div class="line">norbert                            0.2.1        </div><div class="line">nose                               1.3.7        </div><div class="line">notebook                           5.7.4        </div><div class="line">numba                              0.33.0       </div><div class="line">numexpr                            2.6.8        </div><div class="line">numpy                              1.17.4       </div><div class="line">numpydoc                           0.8.0        </div><div class="line">nvidia-ml-py3                      7.352.0      </div><div class="line">odo                                0.5.1        </div><div class="line">olefile                            0.46         </div><div class="line">onnx                               1.5.0        </div><div class="line">onnxconverter-common               1.5.0        </div><div class="line">onnxmltools                        1.5.0        </div><div class="line">openapi-spec-validator             0.2.7        </div><div class="line">opencv-python                      3.4.0.12     </div><div class="line">openpyxl                           2.5.12       </div><div class="line">opt-einsum                         3.1.0        </div><div class="line">packaging                          18.0         </div><div class="line">palettable                         3.1.0        </div><div class="line">pandas                             0.25.1       </div><div class="line">pandas-datareader                  0.6.0        </div><div class="line">pandas-summary                     0.0.41       </div><div class="line">pandocfilters                      1.4.2        </div><div class="line">parsel                             1.2.0        </div><div class="line">parso                              0.3.1        </div><div class="line">partd                              0.3.9        </div><div class="line">path.py                            11.5.0       </div><div class="line">pathlib                            1.0.1        </div><div class="line">pathlib2                           2.3.3        </div><div class="line">patsy                              0.5.1        </div><div class="line">pbr                                3.1.1        </div><div class="line">pep8                               1.7.1        </div><div class="line">pew                                0.1.26       </div><div class="line">pexpect                            4.6.0        </div><div class="line">pickleshare                        0.7.5        </div><div class="line">Pillow                             5.3.0        </div><div class="line">pip                                19.1.1       </div><div class="line">pip-tools                          1.9.0        </div><div class="line">pipenv                             7.4.3        </div><div class="line">pipreqs                            0.4.9        </div><div class="line">plac                               0.9.6        </div><div class="line">plotly                             3.10.0       </div><div class="line">plotnine                           0.3.0        </div><div class="line">pluggy                             0.8.0        </div><div class="line">ply                                3.11         </div><div class="line">preshed                            2.0.1        </div><div class="line">prettytable                        0.7.2        </div><div class="line">progressbar2                       3.34.3       </div><div class="line">prometheus-client                  0.5.0        </div><div class="line">prompt-toolkit                     2.0.7        </div><div class="line">protobuf                           3.7.1        </div><div class="line">psutil                             5.4.8        </div><div class="line">psycopg2                           2.7.7        </div><div class="line">ptyprocess                         0.6.0        </div><div class="line">py                                 1.7.0        </div><div class="line">pyaml                              19.4.1       </div><div class="line">pyarrow                            0.8.0        </div><div class="line">pyasn1                             0.3.2        </div><div class="line">pyasn1-modules                     0.2.1        </div><div class="line">pycodestyle                        2.4.0        </div><div class="line">pycosat                            0.6.3        </div><div class="line">pycparser                          2.19         </div><div class="line">pycrypto                           2.6.1        </div><div class="line">pycurl                             7.43.0.2     </div><div class="line">PyDispatcher                       2.0.5        </div><div class="line">pydot                              1.4.1        </div><div class="line">pydotplus                          2.0.2        </div><div class="line">pyecharts                          1.2.0        </div><div class="line">pyflakes                           2.0.0        </div><div class="line">pygame                             1.9.4        </div><div class="line">pyglet                             1.3.2        </div><div class="line">Pygments                           2.3.1        </div><div class="line">pygtrie                            2.3          </div><div class="line">pylint                             2.2.2        </div><div class="line">pymongo                            3.8.0        </div><div class="line">PyMySQL                            0.9.3        </div><div class="line">pync                               2.0.3        </div><div class="line">pyodbc                             4.0.25       </div><div class="line">pyOpenSSL                          18.0.0       </div><div class="line">pyparsing                          2.3.0        </div><div class="line">pyperclip                          1.6.0        </div><div class="line">pypng                              0.0.18       </div><div class="line">PyQRCode                           1.2.1        </div><div class="line">PyQt5                              5.13.1       </div><div class="line">PyQt5-sip                          4.19.19      </div><div class="line">pyquery                            1.3.0        </div><div class="line">PySocks                            1.6.8        </div><div class="line">pyspider                           0.3.9        </div><div class="line">pytest                             4.0.2        </div><div class="line">python-dateutil                    2.7.5        </div><div class="line">python-editor                      1.0.4        </div><div class="line">python-jsonrpc-server              0.2.0        </div><div class="line">python-language-server             0.28.1       </div><div class="line">python-rtmidi                      1.1.2        </div><div class="line">python-slugify                     2.0.1        </div><div class="line">python-utils                       2.2.0        </div><div class="line">python2                            1.2          </div><div class="line">pythonz-bd                         1.11.4       </div><div class="line">pytorch-pretrained-bert            0.6.2        </div><div class="line">pytz                               2018.7       </div><div class="line">PyWavelets                         0.5.2        </div><div class="line">PyYAML                             3.13         </div><div class="line">pyzmq                              17.1.2       </div><div class="line">QtAwesome                          0.5.3        </div><div class="line">qtconsole                          4.4.3        </div><div class="line">QtPy                               1.5.2        </div><div class="line">queuelib                           1.4.2        </div><div class="line">regex                              2017.4.5     </div><div class="line">requests                           2.21.0       </div><div class="line">requests-file                      1.4.3        </div><div class="line">requests-ftp                       0.3.1        </div><div class="line">resumable-urlretrieve              0.1.5        </div><div class="line">retrying                           1.3.3        </div><div class="line">rope                               0.11.0       </div><div class="line">rsa                                3.4.2        </div><div class="line">ruamel-yaml                        0.15.46      </div><div class="line">s3transfer                         0.2.0        </div><div class="line">schedule                           0.5.0        </div><div class="line">scikit-image                       0.13.0       </div><div class="line">scikit-learn                       0.20.2       </div><div class="line">scipy                              1.2.0        </div><div class="line">Scrapy                             1.4.0        </div><div class="line">seaborn                            0.9.0        </div><div class="line">selenium                           3.8.0        </div><div class="line">Send2Trash                         1.5.0        </div><div class="line">service-identity                   17.0.0       </div><div class="line">setuptools                         40.6.3       </div><div class="line">simplegeneric                      0.8.1        </div><div class="line">simplejson                         3.16.0       </div><div class="line">singledispatch                     3.4.0.3      </div><div class="line">six                                1.13.0       </div><div class="line">sk-video                           1.1.10       </div><div class="line">skl2onnx                           1.5.0        </div><div class="line">sklearn-pandas                     1.6.0        </div><div class="line">snowballstemmer                    1.2.1        </div><div class="line">sortedcollections                  1.0.1        </div><div class="line">sortedcontainers                   2.1.0        </div><div class="line">SoundFile                          0.10.2       </div><div class="line">sox                                1.3.7        </div><div class="line">spacy                              2.0.18       </div><div class="line">Sphinx                             1.8.2        </div><div class="line">sphinxcontrib-websupport           1.1.0        </div><div class="line">spyder                             3.3.2        </div><div class="line">spyder-kernels                     0.3.0        </div><div class="line">SQLAlchemy                         1.2.15       </div><div class="line">statsmodels                        0.9.0        </div><div class="line">stempeg                            0.1.8        </div><div class="line">stevedore                          1.28.0       </div><div class="line">swagger-ui-bundle                  0.0.3        </div><div class="line">sympy                              1.3          </div><div class="line">tables                             3.3.0        </div><div class="line">tblib                              1.3.2        </div><div class="line">tensorboard                        1.13.1       </div><div class="line">tensorflow                         1.13.1       </div><div class="line">tensorflow-estimator               1.13.0       </div><div class="line">tensorflow-probability             0.6.0        </div><div class="line">tensorflow-tensorboard             0.4.0        </div><div class="line">termcolor                          1.1.0        </div><div class="line">terminado                          0.8.1        </div><div class="line">testpath                           0.4.2        </div><div class="line">Theano                             1.0.3+unknown</div><div class="line">thinc                              6.12.1       </div><div class="line">toolz                              0.9.0        </div><div class="line">torch                              1.0.1        </div><div class="line">torchtext                          0.2.3        </div><div class="line">torchvision                        0.2.1        </div><div class="line">tornado                            5.1.1        </div><div class="line">tqdm                               4.31.1       </div><div class="line">traitlets                          4.3.2        </div><div class="line">Twisted                            17.9.0       </div><div class="line">typed-ast                          1.1.0        </div><div class="line">typing                             3.6.4        </div><div class="line">typing-extensions                  3.7.4        </div><div class="line">tzlocal                            2.0.0        </div><div class="line">u-msgpack-python                   2.4.1        </div><div class="line">ujson                              1.35         </div><div class="line">unicodecsv                         0.14.1       </div><div class="line">Unidecode                          1.0.23       </div><div class="line">urllib3                            1.24.1       </div><div class="line">virtualenv                         15.1.0       </div><div class="line">virtualenv-clone                   0.2.6        </div><div class="line">visitor                            0.1.3        </div><div class="line">w3lib                              1.18.0       </div><div class="line">wcwidth                            0.1.7        </div><div class="line">webencodings                       0.5.1        </div><div class="line">Werkzeug                           0.14.1       </div><div class="line">wheel                              0.32.3       </div><div class="line">whitenoise                         4.1.2        </div><div class="line">widgetsnbextension                 3.4.2        </div><div class="line">wordcloud                          1.3.1        </div><div class="line">wrapt                              1.10.11      </div><div class="line">WsgiDAV                            2.2.4        </div><div class="line">WTForms                            2.2.1        </div><div class="line">wurlitzer                          1.0.2        </div><div class="line">wxpy                               0.3.9.8      </div><div class="line">xgboost                            0.80         </div><div class="line">xlrd                               1.2.0        </div><div class="line">XlsxWriter                         1.1.2        </div><div class="line">xlwings                            0.15.1       </div><div class="line">xlwt                               1.2.0        </div><div class="line">yarg                               0.1.9        </div><div class="line">zict                               0.1.3        </div><div class="line">zope.interface                     4.4.3        </div><div class="line">WARNING: You are using pip version 19.1.1, however version 19.3.1 is available.</div><div class="line">You should consider upgrading via the &apos;pip install --upgrade pip&apos; command.</div><div class="line">adi0229 MusicRec</div><div class="line">$ python3 -m venv music_rec</div><div class="line">adi0229 MusicRec</div><div class="line">$ ls</div><div class="line">MusicRec        manage.py       playlist        song            templates       z-others</div><div class="line">index           music_rec       sing            static          user</div><div class="line">adi0229 MusicRec</div><div class="line">$ source /Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec/music_rec/bin/python3 -m pip install -U pylint</div><div class="line">bash: ����: command not found</div><div class="line">adi0229 MusicRec</div><div class="line">$ source music_rec/bin/activate</div><div class="line">(music_rec) adi0229 MusicRec</div><div class="line">$ -m pip install -U pylint</div><div class="line">bash: -m: command not found</div><div class="line">(music_rec) adi0229 MusicRec</div><div class="line">$ which python</div><div class="line">/Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec/music_rec/bin/python</div><div class="line">(music_rec) adi0229 MusicRec</div><div class="line">$ pip list</div><div class="line">Package    Version</div><div class="line">---------- -------</div><div class="line">pip        10.0.1 </div><div class="line">setuptools 39.0.1 </div><div class="line">You are using pip version 10.0.1, however version 19.3.1 is available.</div><div class="line">You should consider upgrading via the &apos;pip install --upgrade pip&apos; command.</div><div class="line">(music_rec) adi0229 MusicRec</div><div class="line">$ ls</div><div class="line">MusicRec        manage.py       playlist        song            templates       z-others</div><div class="line">index           music_rec       sing            static          user</div><div class="line">c(music_rec) adi0229 MusicRec</div><div class="line">$ cd z-others</div><div class="line">(music_rec) adi0229 z-others</div><div class="line">$ ls</div><div class="line">api     files   rec     tomysql tools</div><div class="line">(music_rec) adi0229 z-others</div><div class="line">$ cd files</div><div class="line">(music_rec) adi0229 files</div><div class="line">$ pip install -r requirement.txt</div><div class="line">Collecting Django==2.1 (from -r requirement.txt (line 1))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/51/1a/e0ac7886c7123a03814178d7517dc822af0fe51a72e1a6bff26153103322/Django-2.1-py3-none-any.whl (7.3MB)</div><div class="line">    100% |████████████████████████████████| 7.3MB 1.8MB/s </div><div class="line">Collecting PyMySQL==0.9.2 (from -r requirement.txt (line 2))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/a7/7d/682c4a7da195a678047c8f1c51bb7682aaedee1dca7547883c3993ca9282/PyMySQL-0.9.2-py2.py3-none-any.whl (47kB)</div><div class="line">    100% |████████████████████████████████| 51kB 3.2MB/s </div><div class="line">Collecting jieba==0.39 (from -r requirement.txt (line 3))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/71/46/c6f9179f73b818d5827202ad1c4a94e371a29473b7f043b736b4dab6b8cd/jieba-0.39.zip (7.3MB)</div><div class="line">    100% |████████████████████████████████| 7.3MB 1.3MB/s </div><div class="line">Collecting xlrd==1.1.0 (from -r requirement.txt (line 4))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/07/e6/e95c4eec6221bfd8528bcc4ea252a850bffcc4be88ebc367e23a1a84b0bb/xlrd-1.1.0-py2.py3-none-any.whl (108kB)</div><div class="line">    100% |████████████████████████████████| 112kB 9.2MB/s </div><div class="line">Collecting gensim==3.6.0 (from -r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/01/6e/8a8ff9ec36a34dd753c6504cde998c4e0a4e37dcd91e1c9ca4b71960a4f5/gensim-3.6.0.tar.gz (23.1MB)</div><div class="line">    100% |████████████████████████████████| 23.2MB 235kB/s </div><div class="line">Collecting pytz (from Django==2.1-&gt;-r requirement.txt (line 1))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/e7/f9/f0b53f88060247251bf481fa6ea62cd0d25bf1b11a87888e53ce5b7c8ad2/pytz-2019.3-py2.py3-none-any.whl (509kB)</div><div class="line">    100% |████████████████████████████████| 512kB 156kB/s </div><div class="line">Collecting cryptography (from PyMySQL==0.9.2-&gt;-r requirement.txt (line 2))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/6b/4a/ce93178469d4460d6b3a5e648fc1a2f426030f3d30a12d7ed4df73d044de/cryptography-2.8-cp34-abi3-macosx_10_6_intel.whl (1.6MB)</div><div class="line">    100% |████████████████████████████████| 1.6MB 7.3MB/s </div><div class="line">Collecting numpy&gt;=1.11.3 (from gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/60/9a/a6b3168f2194fb468dcc4cf54c8344d1f514935006c3347ede198e968cb0/numpy-1.17.4-cp37-cp37m-macosx_10_9_x86_64.whl (15.1MB)</div><div class="line">    100% |████████████████████████████████| 15.1MB 475kB/s </div><div class="line">Collecting scipy&gt;=0.18.1 (from gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/43/df/3f85a3a762e5dd8d593614288c1f86a5dfbb8b20071192e850d1a9934e7d/scipy-1.3.3-cp37-cp37m-macosx_10_6_intel.whl (27.7MB)</div><div class="line">    100% |████████████████████████████████| 27.7MB 477kB/s </div><div class="line">Collecting six&gt;=1.5.0 (from gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Using cached https://files.pythonhosted.org/packages/65/26/32b8464df2a97e6dd1b656ed26b2c194606c16fe163c695a992b36c11cdf/six-1.13.0-py2.py3-none-any.whl</div><div class="line">Collecting smart_open&gt;=1.2.1 (from gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/0c/09/735f2786dfac9bbf39d244ce75c0313d27d4962e71e0774750dc809f2395/smart_open-1.9.0.tar.gz (70kB)</div><div class="line">    100% |████████████████████████████████| 71kB 7.0MB/s </div><div class="line">Collecting cffi!=1.11.3,&gt;=1.8 (from cryptography-&gt;PyMySQL==0.9.2-&gt;-r requirement.txt (line 2))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/d5/61/32b1aa5ef1bf60be4ef679c4aae082a7ceef98517e0e0fde68072c6ef8b6/cffi-1.13.2-cp37-cp37m-macosx_10_6_intel.whl (258kB)</div><div class="line">    100% |████████████████████████████████| 266kB 7.2MB/s </div><div class="line">Collecting boto&gt;=2.32 (from smart_open&gt;=1.2.1-&gt;gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/23/10/c0b78c27298029e4454a472a1919bde20cb182dab1662cec7f2ca1dcc523/boto-2.49.0-py2.py3-none-any.whl (1.4MB)</div><div class="line">    100% |████████████████████████████████| 1.4MB 4.4MB/s </div><div class="line">Collecting requests (from smart_open&gt;=1.2.1-&gt;gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/51/bd/23c926cd341ea6b7dd0b2a00aba99ae0f828be89d72b2190f27c11d4b7fb/requests-2.22.0-py2.py3-none-any.whl (57kB)</div><div class="line">    100% |████████████████████████████████| 61kB 8.2MB/s </div><div class="line">Collecting boto3 (from smart_open&gt;=1.2.1-&gt;gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/67/17/567f679dac6ec93611ce05637094e9736afa40e41c9ed0aaefd90de6f7e8/boto3-1.10.28-py2.py3-none-any.whl (128kB)</div><div class="line">    100% |████████████████████████████████| 133kB 5.1MB/s </div><div class="line">Collecting pycparser (from cffi!=1.11.3,&gt;=1.8-&gt;cryptography-&gt;PyMySQL==0.9.2-&gt;-r requirement.txt (line 2))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz (158kB)</div><div class="line">    100% |████████████████████████████████| 163kB 7.7MB/s </div><div class="line">Collecting idna&lt;2.9,&gt;=2.5 (from requests-&gt;smart_open&gt;=1.2.1-&gt;gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/14/2c/cd551d81dbe15200be1cf41cd03869a46fe7226e7450af7a6545bfc474c9/idna-2.8-py2.py3-none-any.whl (58kB)</div><div class="line">    100% |████████████████████████████████| 61kB 9.2MB/s </div><div class="line">Collecting chardet&lt;3.1.0,&gt;=3.0.2 (from requests-&gt;smart_open&gt;=1.2.1-&gt;gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl (133kB)</div><div class="line">    100% |████████████████████████████████| 143kB 5.6MB/s </div><div class="line">Collecting certifi&gt;=2017.4.17 (from requests-&gt;smart_open&gt;=1.2.1-&gt;gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/b9/63/df50cac98ea0d5b006c55a399c3bf1db9da7b5a24de7890bc9cfd5dd9e99/certifi-2019.11.28-py2.py3-none-any.whl (156kB)</div><div class="line">    100% |████████████████████████████████| 163kB 8.1MB/s </div><div class="line">Collecting urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 (from requests-&gt;smart_open&gt;=1.2.1-&gt;gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/b4/40/a9837291310ee1ccc242ceb6ebfd9eb21539649f193a7c8c86ba15b98539/urllib3-1.25.7-py2.py3-none-any.whl (125kB)</div><div class="line">    100% |████████████████████████████████| 133kB 3.8MB/s </div><div class="line">Collecting jmespath&lt;1.0.0,&gt;=0.7.1 (from boto3-&gt;smart_open&gt;=1.2.1-&gt;gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/83/94/7179c3832a6d45b266ddb2aac329e101367fbdb11f425f13771d27f225bb/jmespath-0.9.4-py2.py3-none-any.whl</div><div class="line">Collecting botocore&lt;1.14.0,&gt;=1.13.28 (from boto3-&gt;smart_open&gt;=1.2.1-&gt;gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/8e/b3/ab9044d3aa14208f5b6f69665d5f82ad9b028809666e4e70dac1ab0bfd3a/botocore-1.13.28-py2.py3-none-any.whl (5.7MB)</div><div class="line">    100% |████████████████████████████████| 5.7MB 1.3MB/s </div><div class="line">Collecting s3transfer&lt;0.3.0,&gt;=0.2.0 (from boto3-&gt;smart_open&gt;=1.2.1-&gt;gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/16/8a/1fc3dba0c4923c2a76e1ff0d52b305c44606da63f718d14d3231e21c51b0/s3transfer-0.2.1-py2.py3-none-any.whl (70kB)</div><div class="line">    100% |████████████████████████████████| 71kB 6.8MB/s </div><div class="line">Collecting python-dateutil&lt;2.8.1,&gt;=2.1; python_version &gt;= &quot;2.7&quot; (from botocore&lt;1.14.0,&gt;=1.13.28-&gt;boto3-&gt;smart_open&gt;=1.2.1-&gt;gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/41/17/c62faccbfbd163c7f57f3844689e3a78bae1f403648a6afb1d0866d87fbb/python_dateutil-2.8.0-py2.py3-none-any.whl (226kB)</div><div class="line">    100% |████████████████████████████████| 235kB 6.3MB/s </div><div class="line">Collecting docutils&lt;0.16,&gt;=0.10 (from botocore&lt;1.14.0,&gt;=1.13.28-&gt;boto3-&gt;smart_open&gt;=1.2.1-&gt;gensim==3.6.0-&gt;-r requirement.txt (line 5))</div><div class="line">  Downloading https://files.pythonhosted.org/packages/22/cd/a6aa959dca619918ccb55023b4cb151949c64d4d5d55b3f4ffd7eee0c6e8/docutils-0.15.2-py3-none-any.whl (547kB)</div><div class="line">    100% |████████████████████████████████| 552kB 4.4MB/s </div><div class="line">Installing collected packages: pytz, Django, pycparser, cffi, six, cryptography, PyMySQL, jieba, xlrd, numpy, scipy, boto, idna, chardet, certifi, urllib3, requests, jmespath, python-dateutil, docutils, botocore, s3transfer, boto3, smart-open, gensim</div><div class="line">  Running setup.py install for pycparser ... done</div><div class="line">  Running setup.py install for jieba ... done</div><div class="line">  Running setup.py install for smart-open ... done</div><div class="line">  Running setup.py install for gensim ... done</div><div class="line">Successfully installed Django-2.1 PyMySQL-0.9.2 boto-2.49.0 boto3-1.10.28 botocore-1.13.28 certifi-2019.11.28 cffi-1.13.2 chardet-3.0.4 cryptography-2.8 docutils-0.15.2 gensim-3.6.0 idna-2.8 jieba-0.39 jmespath-0.9.4 numpy-1.17.4 pycparser-2.19 python-dateutil-2.8.0 pytz-2019.3 requests-2.22.0 s3transfer-0.2.1 scipy-1.3.3 six-1.13.0 smart-open-1.9.0 urllib3-1.25.7 xlrd-1.1.0</div><div class="line">You are using pip version 10.0.1, however version 19.3.1 is available.</div><div class="line">You should consider upgrading via the &apos;pip install --upgrade pip&apos; command.</div><div class="line">(music_rec) adi0229 files</div><div class="line">$ cd ..</div><div class="line">(music_rec) adi0229 z-others</div><div class="line">$ cd ..</div><div class="line">(music_rec) adi0229 MusicRec</div><div class="line">$ ls</div><div class="line">MusicRec        manage.py       playlist        song            templates       z-others</div><div class="line">index           music_rec       sing            static          user</div><div class="line">(music_rec) adi0229 MusicRec</div><div class="line">$ deactivate</div><div class="line">adi0229 MusicRec</div><div class="line">$ source music_rec/bin/activate</div><div class="line">(music_rec) adi0229 MusicRec</div><div class="line">$ pip install -U pylint</div><div class="line">Collecting pylint</div><div class="line">  Downloading https://files.pythonhosted.org/packages/e9/59/43fc36c5ee316bb9aeb7cf5329cdbdca89e5749c34d5602753827c0aa2dc/pylint-2.4.4-py3-none-any.whl (302kB)</div><div class="line">    100% |████████████████████████████████| 307kB 1.4MB/s </div><div class="line">Collecting isort&lt;5,&gt;=4.2.5 (from pylint)</div><div class="line">  Downloading https://files.pythonhosted.org/packages/e5/b0/c121fd1fa3419ea9bfd55c7f9c4fedfec5143208d8c7ad3ce3db6c623c21/isort-4.3.21-py2.py3-none-any.whl (42kB)</div><div class="line">    100% |████████████████████████████████| 51kB 9.3MB/s </div><div class="line">Collecting mccabe&lt;0.7,&gt;=0.6 (from pylint)</div><div class="line">  Downloading https://files.pythonhosted.org/packages/87/89/479dc97e18549e21354893e4ee4ef36db1d237534982482c3681ee6e7b57/mccabe-0.6.1-py2.py3-none-any.whl</div><div class="line">Collecting astroid&lt;2.4,&gt;=2.3.0 (from pylint)</div><div class="line">  Downloading https://files.pythonhosted.org/packages/ad/ae/86734823047962e7b8c8529186a1ac4a7ca19aaf1aa0c7713c022ef593fd/astroid-2.3.3-py3-none-any.whl (205kB)</div><div class="line">    100% |████████████████████████████████| 215kB 1.7MB/s </div><div class="line">Collecting wrapt==1.11.* (from astroid&lt;2.4,&gt;=2.3.0-&gt;pylint)</div><div class="line">  Using cached https://files.pythonhosted.org/packages/23/84/323c2415280bc4fc880ac5050dddfb3c8062c2552b34c2e512eb4aa68f79/wrapt-1.11.2.tar.gz</div><div class="line">Collecting typed-ast&lt;1.5,&gt;=1.4.0; implementation_name == &quot;cpython&quot; and python_version &lt; &quot;3.8&quot; (from astroid&lt;2.4,&gt;=2.3.0-&gt;pylint)</div><div class="line">  Downloading https://files.pythonhosted.org/packages/a0/03/266268b053ad81b8aea17bc3f5e6d3cf074bb4372d229336867a67e17076/typed_ast-1.4.0-cp37-cp37m-macosx_10_9_x86_64.whl (215kB)</div><div class="line">    100% |████████████████████████████████| 225kB 4.5MB/s </div><div class="line">Requirement not upgraded as not directly required: six~=1.12 in ./music_rec/lib/python3.7/site-packages (from astroid&lt;2.4,&gt;=2.3.0-&gt;pylint) (1.13.0)</div><div class="line">Collecting lazy-object-proxy==1.4.* (from astroid&lt;2.4,&gt;=2.3.0-&gt;pylint)</div><div class="line">  Downloading https://files.pythonhosted.org/packages/e2/44/044dc5610d868cd4e9329549c07e8366c0b0aace410d2502a131c46576de/lazy_object_proxy-1.4.3-cp37-cp37m-macosx_10_13_x86_64.whl</div><div class="line">Installing collected packages: isort, mccabe, wrapt, typed-ast, lazy-object-proxy, astroid, pylint</div><div class="line">  Running setup.py install for wrapt ... done</div><div class="line">Successfully installed astroid-2.3.3 isort-4.3.21 lazy-object-proxy-1.4.3 mccabe-0.6.1 pylint-2.4.4 typed-ast-1.4.0 wrapt-1.11.2</div><div class="line">You are using pip version 10.0.1, however version 19.3.1 is available.</div><div class="line">You should consider upgrading via the &apos;pip install --upgrade pip&apos; command.</div><div class="line">(music_rec) adi0229 MusicRec</div><div class="line">$</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">(music_rec) adi0229 MusicRec</div><div class="line">$ /Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec/music_rec/bin/python3 /Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec/manage.py</div><div class="line"></div><div class="line">Type &apos;manage.py help &lt;subcommand&gt;&apos; for help on a specific subcommand.</div><div class="line"></div><div class="line">Available subcommands:</div><div class="line"></div><div class="line">[auth]</div><div class="line">    changepassword</div><div class="line">    createsuperuser</div><div class="line"></div><div class="line">[contenttypes]</div><div class="line">    remove_stale_contenttypes</div><div class="line"></div><div class="line">[django]</div><div class="line">    check</div><div class="line">    compilemessages</div><div class="line">    createcachetable</div><div class="line">    dbshell</div><div class="line">    diffsettings</div><div class="line">    dumpdata</div><div class="line">    flush</div><div class="line">    inspectdb</div><div class="line">    loaddata</div><div class="line">    makemessages</div><div class="line">    makemigrations</div><div class="line">    migrate</div><div class="line">    sendtestemail</div><div class="line">    shell</div><div class="line">    showmigrations</div><div class="line">    sqlflush</div><div class="line">    sqlmigrate</div><div class="line">    sqlsequencereset</div><div class="line">    squashmigrations</div><div class="line">    startapp</div><div class="line">    startproject</div><div class="line">    test</div><div class="line">    testserver</div><div class="line"></div><div class="line">[sessions]</div><div class="line">    clearsessions</div><div class="line"></div><div class="line">[staticfiles]</div><div class="line">    collectstatic</div><div class="line">    findstatic</div><div class="line">    runserver</div></pre></td></tr></table></figure>
+<p>Mac查看本机IP的终端命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$ ifconfig</div><div class="line">lo0: flags=8049&lt;UP,LOOPBACK,RUNNING,MULTICAST&gt; mtu 16384</div><div class="line">	options=1203&lt;RXCSUM,TXCSUM,TXSTATUS,SW_TIMESTAMP&gt;</div><div class="line">	inet 127.0.0.1 netmask 0xff000000</div><div class="line">	inet6 ::1 prefixlen 128</div><div class="line">	inet6 fe80::1%lo0 prefixlen 64 scopeid 0x1</div><div class="line">	nd6 options=201&lt;PERFORMNUD,DAD&gt;</div><div class="line">gif0: flags=8010&lt;POINTOPOINT,MULTICAST&gt; mtu 1280</div><div class="line">stf0: flags=0&lt;&gt; mtu 1280</div><div class="line">XHC20: flags=0&lt;&gt; mtu 0</div><div class="line">en0: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500</div><div class="line">	ether c4:b3:01:c5:d6:5f</div><div class="line">	inet6 fe80::4e3:a14b:62f0:c7c6%en0 prefixlen 64 secured scopeid 0x5</div><div class="line">	inet 192.168.1.4 netmask 0xffffff00 broadcast 192.168.1.255</div><div class="line">	nd6 options=201&lt;PERFORMNUD,DAD&gt;</div><div class="line">	media: autoselect</div><div class="line">	status: active</div></pre></td></tr></table></figure>
+<p>192.168.1.4 </p>
+<p>注意：mySQL 的 DB_HOST 是 localhost </p>
+<p>进入 MusicRecSys/MusicRec 执行python manage.py runserver 0.0.0.0:8000</p>
+<p>安装 Vue.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">This package has installed:</div><div class="line">	•	Node.js v12.13.1 to /usr/local/bin/node</div><div class="line">	•	npm v6.12.1 to /usr/local/bin/npm</div><div class="line">Make sure that /usr/local/bin is in your $PATH.</div></pre></td></tr></table></figure>
+<p>安装前段 Vue.js，并运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line">adi0229 project@MusicRecSys</div><div class="line">$ npm install vue -g</div><div class="line">+ vue@2.6.10</div><div class="line">added 1 package from 1 contributor in 3.454s</div><div class="line">adi0229 project@MusicRecSys</div><div class="line">$ npm install vue-cli -g</div><div class="line">npm WARN deprecated vue-cli@2.9.6: This package has been deprecated in favour of @vue/cli</div><div class="line">npm WARN deprecated coffee-script@1.12.7: CoffeeScript on NPM has moved to &quot;coffeescript&quot; (no hyphen)</div><div class="line">/usr/local/bin/vue-init -&gt; /usr/local/lib/node_modules/vue-cli/bin/vue-init</div><div class="line">/usr/local/bin/vue -&gt; /usr/local/lib/node_modules/vue-cli/bin/vue</div><div class="line">/usr/local/bin/vue-list -&gt; /usr/local/lib/node_modules/vue-cli/bin/vue-list</div><div class="line">+ vue-cli@2.9.6</div><div class="line">added 241 packages from 206 contributors in 50.351s</div><div class="line">adi0229 project@MusicRecSys</div><div class="line">$ ls</div><div class="line">MusicRec        MusicRec-Vue</div><div class="line">adi0229 project@MusicRecSys</div><div class="line">$ cd  MusicRec-Vue</div><div class="line">adi0229 MusicRec-Vue</div><div class="line">$ npm install</div><div class="line"></div><div class="line">&gt; fsevents@1.2.4 install /Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec-Vue/node_modules/fsevents</div><div class="line">&gt; node install</div><div class="line"></div><div class="line"></div><div class="line">node-pre-gyp ERR! Completion callback never invoked! </div><div class="line">node-pre-gyp ERR! System Darwin 18.6.0</div><div class="line">node-pre-gyp ERR! command &quot;/usr/local/bin/node&quot; &quot;/Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec-Vue/node_modules/fsevents/node_modules/node-pre-gyp/bin/node-pre-gyp&quot; &quot;install&quot; &quot;--fallback-to-build&quot;</div><div class="line">node-pre-gyp ERR! cwd /Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec-Vue/node_modules/fsevents</div><div class="line">node-pre-gyp ERR! node -v v12.13.1</div><div class="line">node-pre-gyp ERR! node-pre-gyp -v v0.10.0</div><div class="line">node-pre-gyp ERR! This is a bug in `node-pre-gyp`.</div><div class="line">node-pre-gyp ERR! Try to update node-pre-gyp and file an issue if it does not help:</div><div class="line">node-pre-gyp ERR!     &lt;https://github.com/mapbox/node-pre-gyp/issues&gt;</div><div class="line"></div><div class="line">&gt; chromedriver@2.44.1 install /Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec-Vue/node_modules/chromedriver</div><div class="line">&gt; node install.js</div><div class="line"></div><div class="line">Current existing ChromeDriver binary is unavailable, proceding with download and extraction.</div><div class="line">Downloading from file:  https://chromedriver.storage.googleapis.com/2.44/chromedriver_mac64.zip</div><div class="line">Saving to file: /var/folders/m2/g8ncx8wd1tnfh_6_9pcvl6lc0000gn/T/chromedriver/chromedriver_mac64.zip</div><div class="line">Received 781K...</div><div class="line">Received 1566K...</div><div class="line">Received 2350K...</div><div class="line">Received 3134K...</div><div class="line">Received 3918K...</div><div class="line">Received 4702K...</div><div class="line">Received 5486K...</div><div class="line">Received 6270K...</div><div class="line">Received 6747K total.</div><div class="line">Extracting zip contents</div><div class="line">Copying to target path /Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec-Vue/node_modules/chromedriver/lib/chromedriver</div><div class="line">Fixing file permissions</div><div class="line">Done. ChromeDriver binary available at /Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec-Vue/node_modules/chromedriver/lib/chromedriver/chromedriver</div><div class="line"></div><div class="line">&gt; swiper@4.4.2 postinstall /Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec-Vue/node_modules/swiper</div><div class="line">&gt; node -e &quot;console.log(&apos;\u001b[35m\u001b[1mLove Swiper? Support Vladimir\&apos;s work by donating or pledging on patreon:\u001b[22m\u001b[39m\n &gt; \u001b[32mhttps://patreon.com/vladimirkharlampidi\u001b[0m\n&apos;)&quot;</div><div class="line"></div><div class="line">Love Swiper? Support Vladimir&apos;s work by donating or pledging on patreon:</div><div class="line"> &gt; https://patreon.com/vladimirkharlampidi</div><div class="line"></div><div class="line"></div><div class="line">&gt; uglifyjs-webpack-plugin@0.4.6 postinstall /Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec-Vue/node_modules/webpack/node_modules/uglifyjs-webpack-plugin</div><div class="line">&gt; node lib/post_install.js</div><div class="line"></div><div class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.4 (node_modules/fsevents):</div><div class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.4 install: `node install`</div><div class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: Exit status 6</div><div class="line"></div><div class="line">added 1619 packages from 1105 contributors and audited 29868 packages in 113.355s</div><div class="line">found 789 vulnerabilities (71 low, 12 moderate, 704 high, 2 critical)</div><div class="line">  run `npm audit fix` to fix them, or `npm audit` for details</div><div class="line">adi0229 MusicRec-Vue</div><div class="line">$ </div><div class="line">adi0229 MusicRec-Vue</div><div class="line">$ npm run dev</div><div class="line"></div><div class="line">&gt; jobtest@1.0.0 dev /Volumes/adi0229/adi.com/tech.adi.com/project@MusicRecSys/MusicRec-Vue</div><div class="line">&gt; webpack-dev-server --inline --progress --config build/webpack.dev.conf.js</div><div class="line"></div><div class="line"> 95% emitting                                                                           </div><div class="line"></div><div class="line"> DONE  Compiled successfully in 14799ms                                                  6:29:31 PM</div><div class="line"></div><div class="line"> I  Your application is running here: http://0.0.0.0:8001</div></pre></td></tr></table></figure>
+<h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p><a href="https://www.youtube.com/watch?v=Kg1Yvry_Ydk" target="_blank" rel="external">Python Tutorial: VENV (Mac &amp; Linux) - How to Use Virtual Environments with the Built-In venv Module</a></p>
+<h1 id="Changelog"><a href="#Changelog" class="headerlink" title="Changelog"></a>Changelog</h1><p>19.11.29 init 2h</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/25/2019-11-25-cloudimg/" rel="next" title="GitHub+PicGo个人图床配置记录">
+                <i class="fa fa-chevron-left"></i> GitHub+PicGo个人图床配置记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/29/2019-11-29-ACH/" rel="prev" title="马航空难源于政治阴谋？—来自中情局ACH分析法的推论">
+                马航空难源于政治阴谋？—来自中情局ACH分析法的推论 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Author"/>
+            
+              <p class="site-author-name" itemprop="name">Author</p>
+              <div class="site-description motion-element" itemprop="description">The journey is the reward.</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/adi0229" title="GitHub &rarr; https://github.com/adi0229" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:jiandi.huang@gmail.com" title="E-Mail &rarr; mailto:jiandi.huang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#音乐推荐引擎"><span class="nav-number">1.</span> <span class="nav-text">音乐推荐引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建虚拟venv环境，安装所有依赖项"><span class="nav-number">1.1.</span> <span class="nav-text">创建虚拟venv环境，安装所有依赖项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ref"><span class="nav-number">2.</span> <span class="nav-text">Ref</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Changelog"><span class="nav-number">3.</span> <span class="nav-text">Changelog</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Author</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.3.7</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

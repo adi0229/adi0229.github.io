@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="背景问题：公众视角 -&amp;gt; 机器学习是「黑盒&amp;amp;黑魔法」。一些研究调查表明，尽管机器学习技术以及渗透到了各行各业的应用之中，但公众对机器学习知之甚少。 2017 年The Royal Society对英国普通大众进行采访，发现大部分被试对机器学习“一无所知”。虽然大部分人都知道一些采用了机器学习的科技应用，但是他们不知道机器学习如何运作，就算是比较宽泛的概念也不了解。 另一项调研，对机器">
+<meta name="keywords" content="AI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「ML笔记」- 机器学习生命周期（Machine Learning Lifecycle）">
+<meta property="og:url" content="https://adi0229.github.io/2019/05/13/2019-05-13-ml-lifecyle/index.html">
+<meta property="og:site_name" content="电光石火">
+<meta property="og:description" content="背景问题：公众视角 -&amp;gt; 机器学习是「黑盒&amp;amp;黑魔法」。一些研究调查表明，尽管机器学习技术以及渗透到了各行各业的应用之中，但公众对机器学习知之甚少。 2017 年The Royal Society对英国普通大众进行采访，发现大部分被试对机器学习“一无所知”。虽然大部分人都知道一些采用了机器学习的科技应用，但是他们不知道机器学习如何运作，就算是比较宽泛的概念也不了解。 另一项调研，对机器">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/452087-8548308bb6edbc70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/452087-31738854d768981d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/452087-9b16f71f759b66cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/452087-0ec8b714e911488e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/452087-061f33696dc08fff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/452087-c5d93bbb487f0e5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/452087-d7265ad3602d92a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/452087-431376e7018762af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/452087-af5f63dbeb9a0659.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/452087-de52b9f123eb97ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-07-09T07:59:58.877Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「ML笔记」- 机器学习生命周期（Machine Learning Lifecycle）">
+<meta name="twitter:description" content="背景问题：公众视角 -&amp;gt; 机器学习是「黑盒&amp;amp;黑魔法」。一些研究调查表明，尽管机器学习技术以及渗透到了各行各业的应用之中，但公众对机器学习知之甚少。 2017 年The Royal Society对英国普通大众进行采访，发现大部分被试对机器学习“一无所知”。虽然大部分人都知道一些采用了机器学习的科技应用，但是他们不知道机器学习如何运作，就算是比较宽泛的概念也不了解。 另一项调研，对机器">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/452087-8548308bb6edbc70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="电光石火" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://adi0229.github.io/2019/05/13/2019-05-13-ml-lifecyle/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>「ML笔记」- 机器学习生命周期（Machine Learning Lifecycle） | 电光石火</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">电光石火</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">阿迪的博客</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://adi0229.github.io/2019/05/13/2019-05-13-ml-lifecyle/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Author"/>
+      <meta itemprop="description" content="The journey is the reward."/>
+      <meta itemprop="image" content="/images/avatar.png"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="电光石火"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">「ML笔记」- 机器学习生命周期（Machine Learning Lifecycle）
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-13 13:34:21" itemprop="dateCreated datePublished" datetime="2019-05-13T13:34:21+08:00">2019-05-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-09 15:59:58" itemprop="dateModified" datetime="2019-07-09T15:59:58+08:00">2019-07-09</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h4 id="问题：公众视角-gt-机器学习是「黑盒-amp-黑魔法」。"><a href="#问题：公众视角-gt-机器学习是「黑盒-amp-黑魔法」。" class="headerlink" title="问题：公众视角 -&gt; 机器学习是「黑盒&amp;黑魔法」。"></a>问题：公众视角 -&gt; 机器学习是「黑盒&amp;黑魔法」。</h4><p>一些研究调查表明，尽管机器学习技术以及渗透到了各行各业的应用之中，但公众对机器学习知之甚少。</p>
+<p>2017 年The Royal Society对英国普通大众进行采访，发现大部分被试对机器学习“一无所知”。虽然大部分人都知道一些采用了机器学习的科技应用，但是他们不知道机器学习如何运作，就算是比较宽泛的概念也不了解。</p>
+<p>另一项调研，对机器学习项目里的 UX 设计师进行了调查，发现他们对机器学习也缺乏常识了解。其中一位被试，TA 把机器学习看做「黑魔法」，TA 表示：“设计师不理解科技的「边界限制」以及如何合理地应用它。”</p>
+<p>传送门：<a href="https://mltidbits.github.io/aboutus.html" target="_blank" rel="external">mltidbits小姐姐们自我简介</a></p>
+<h4 id="问题：机器学习从业者-gt-缺乏人种多样性-gt-「女性-amp-黑人」是少数派"><a href="#问题：机器学习从业者-gt-缺乏人种多样性-gt-「女性-amp-黑人」是少数派" class="headerlink" title="问题：机器学习从业者-&gt; 缺乏人种多样性 -&gt; 「女性&amp;黑人」是少数派"></a>问题：机器学习从业者-&gt; 缺乏人种多样性 -&gt; 「女性&amp;黑人」是少数派</h4><ul>
+<li>2018 年，在 21 个机器学习学术会议中，仅有 18%的第一作者是女性。</li>
+<li>黑人在谷歌员工中占比 2.5%。</li>
+</ul>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>在油管的ML Tidbits频道，2位麻省AI相关专业的女博士，通过视频来阐释机器学习的整个工作循环周期，内容通俗易懂且有趣，通过此举，她们致力于减少公众对机器学习的理解偏差，以及提升机器学习相关从业人士的背景多样性。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/452087-8548308bb6edbc70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>视频传送门：<a href="https://www.youtube.com/watch?v=ZmBUnJ7lGvQ" target="_blank" rel="external">https://www.youtube.com/watch?v=ZmBUnJ7lGvQ</a></p>
+<h1 id="总流程：机器学习生命周期"><a href="#总流程：机器学习生命周期" class="headerlink" title="总流程：机器学习生命周期"></a>总流程：机器学习生命周期</h1><p><img src="https://upload-images.jianshu.io/upload_images/452087-31738854d768981d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>定义问题（Problem Definition） -&gt; 数据收集(Data Collection) -&gt; 数据分割(Dataset Spit up) -&gt; 模型训练(Model Training) -&gt; 模型评估(Model Evaluation) -&gt; 应用部署(System Deployment) -&gt; 改变世界(Impact the world)！</p>
+<h1 id="例子-gt-一个类似朋友圈的-APP"><a href="#例子-gt-一个类似朋友圈的-APP" class="headerlink" title="例子 -&gt; 一个类似朋友圈的 APP"></a>例子 -&gt; 一个类似朋友圈的 APP</h1><p>MIT 的博士2位小姐姐，通过介绍一个有趣好懂的例子，来讲解机器学习应用的全流程。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/452087-9b16f71f759b66cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>假设: 你有一个点子，想要为朋友们做一个类似微信朋友圈的APP</p>
+<ul>
+<li>这个 APP，采用机器学习技术（图片分类 -&gt; 人脸情绪识别）<ul>
+<li>根据他们上传的照片，判断TA是不是心情悲伤。</li>
+<li>如果判断TA心情悲伤，给TA发送提示消息，让TA给朋友打语音电话，或者发送一张萌图给 TA<ul>
+<li>默认假设：看了萌图，你的朋友更容易高兴起来。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>问题来了：</p>
+<ul>
+<li>如何创建这个机器学习应用系统？</li>
+<li>相应的道德问题有哪些？如何处理？</li>
+</ul>
+<h4 id="1-定义问题-Problem-Definition"><a href="#1-定义问题-Problem-Definition" class="headerlink" title="1.定义问题(Problem Definition)"></a>1.定义问题(Problem Definition)</h4><p><img src="https://upload-images.jianshu.io/upload_images/452087-0ec8b714e911488e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>从点子 -&gt; 应用，需要走过很长的流程啊。</p>
+<ul>
+<li>定义问题</li>
+</ul>
+<p>首先，我们需要定义待解决的问题，明确问题的可操作性定义。<br>然后，问题明确之后，相关的团队成员才能协同开展工作，整个团队可以围绕着同一个目标，朝着同一个轨道在前进。</p>
+<p>根据本次例子中的产品逻辑，使用机器学习术语来表述，这个问题定义该为「二元分类」任务。也就说，我们让电脑来预测情绪，你的朋友上传的照片是否体现了 TA 有着悲伤情绪，这里包含两个情况，也就是两种分类，因此称为「二元分类」任务。</p>
+<ul>
+<li>问题假设</li>
+</ul>
+<p>同时，我们需要对情绪下一个可操作性定义，这样，在后续工作中，我们才能确认数据集图片样本对应的标签，是准确无误的。<br>比如什么是悲伤，什么是不悲伤，如何定义，如何判断？如果是复合情绪呢？本例中，我们假设人们只有 2 种情绪，悲伤或不悲伤。这样做，牺牲了对复合情绪的考虑。（当然，有人可以既悲伤又高兴，或者看起来悲伤，其实内心狂喜。同时，如果脸部表情不能准确呈现用户内心情绪呢？（根据莉莎.巴瑞特教授的「情绪建构论」）。</p>
+<ul>
+<li>问题限制</li>
+</ul>
+<p>本例中，我们本能地「假设」，根据用户上传的照片（包含 TA的影像），我们可以判断用户的情绪。现实世界中，这个假设成立吗？如何界定对假设的置信度？</p>
+<p>总之，模型难以完美，要有妥协。</p>
+<p>如果悲伤的人，上传照片之后，收看了萌图，或者得到提示，给朋友打了一通语音电话，心情变好了，那不就是实现了初心吗？</p>
+<h4 id="2-数据收集（Data-Collection）"><a href="#2-数据收集（Data-Collection）" class="headerlink" title="2. 数据收集（Data Collection）"></a>2. 数据收集（Data Collection）</h4><ul>
+<li>第一步：总体定义</li>
+</ul>
+<p>从哪些用户总体（Population）收集数据？用来做什么？</p>
+<p>若用户总体不具有代表性，那么机器从数据集中学到的特征，也是没有代表性的，实际的模型应用表现，会很差劲。</p>
+<p>样本群体需要如何从用户总体中获取，他们之间的相似度及差别是什么？<br>用户总体数量需要多少，也就是说，多少人你需要考虑顾及到？</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/452087-061f33696dc08fff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>第二步：特征衡量</li>
+</ul>
+<blockquote>
+<p>你无法管理你不能衡量的东西 – [Morris A. Cohen]<br>You can’t manage things you can’t measure</p>
+</blockquote>
+<p>考虑下列问题：</p>
+<ul>
+<li>我们假设，要从总体用户群中手机照片图片，那么，在总体中，他们的照片（自拍/他拍）的质量是否稳定可靠？</li>
+<li>是否收集其他信息 -&gt; 用户人口学特征（性别/年龄/坐标等）？</li>
+<li>是否需要收集标签（label）？本例中，图片的标签类别分为悲伤（sad）或不悲伤（not sad）</li>
+<li>标签如何收集？拍照时做调研，或者找专业人员来手工标注？注意，务必评估标签的准确程度，包括偏差（bias，有些标签存在争议。）乃至错误的比率。</li>
+<li>样本平衡。每种标签类别都有足够的样本数，以及比例均衡。本例中，悲伤和不悲伤的标签数目应该是五五开。这样，模型才能充分学习到图片中的人物悲伤与否的视觉特征。</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/452087-c5d93bbb487f0e5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>接着，数据科学&amp;机器学习工作的脏话累活到了。</p>
+<p>这一步叫做「数据预处理」。（以下省略数十万字）<br>本例中，数据预处理或许是图片处理成为一致的大小和分辨率。</p>
+<ul>
+<li>数据收集（其他可选方法）：</li>
+</ul>
+<p>获取开源数据集。例如，我们在网上找到已经处理好的数据集，对图片进行了是否在微笑的标注。为了能处理我们的任务，我们可以-&gt;转换标签–&gt;微笑/不微笑 -&gt; 不悲伤/悲伤</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/452087-d7265ad3602d92a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>同时，需要验证数据是否可靠：</p>
+<p>这个公开数据集，是否可信？数据是如何收集的，总体是多少？是否很好的测量？是否适合我们的任务？</p>
+<p>有时候，根据手头可用数据及标签，我们会迭代&amp;修正初始的「问题定义」。也就是说，重新定义问题（Redefine Problem）。此外，真实的机器学习工作流，并不是一个顺时针不变的进程，流程有时会根据现实变化，反复回溯修改，这是一个螺旋式进程。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/452087-431376e7018762af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="3-数据集分割"><a href="#3-数据集分割" class="headerlink" title="3.数据集分割"></a>3.数据集分割</h4><p>数据收集完毕之后，我们需要分割数据集，一般会把数据集分成三份：训练集-验证集-测试集。</p>
+<p>训练集：模型学习数据特征的那部分，数量占比最大。类似我们考试时，做的常规习题<br>验证集：模型做常规习题之后，会做模拟题，比如高考前每月进行月考模拟考，以此来评估日常学习的效果。<br>测试集：模型学习了训练集及在验证集评估之后，类似于真正一锤定音的高考题目。需要真刀真枪地在一些它没有学习过的题目上，进行预测分类等任务。</p>
+<h4 id="4-定义模型"><a href="#4-定义模型" class="headerlink" title="4.  定义模型"></a>4.  定义模型</h4><p>前期的数据准备好了之后，万事俱备只欠东风。这时候，就是「机器」学习的时候了。</p>
+<p>模型结构，需要根据数据类型来搭建。比如，如果你的数据是时序数据（timeseries），那么你最好选择擅长学习时序关系的模型架构。</p>
+<p>常见的数据结构类型：</p>
+<p>文本数据（text）<br>结构数据（tabular）<br>图片数据（image）</p>
+<p>本例中，对于图片数据，卷积神经网络是当前最合适的。卷积神经网络的简易应用，参见笔记[旧调重弹—— Fastai-v3版尝鲜之猫狗图片识别(<a href="https://www.jianshu.com/p/7f315d0482a4" target="_blank" rel="external">https://www.jianshu.com/p/7f315d0482a4</a>)</p>
+<p>模型结构的深度及广度，不是越高级越复杂越好，针对具体的数据集，合适就好。<br>对于简单的数据集，模型无需太复杂。<br>对于复杂的数据集，模型不能太简单。</p>
+<p>如何微调模型的结构和参数等，目前更多地依靠数据科学家们的直觉经验，更像一门艺术，而非严谨的科学。fastai创始人Jeremy曾解释过，他都是根据经验法则（Rule of Thumb）来选择超参数（HyperParameters）中的学习率（LearningRate）的。</p>
+<h4 id="5-训练模型"><a href="#5-训练模型" class="headerlink" title="5.   训练模型"></a>5.   训练模型</h4><ul>
+<li>不同模型，有着不同的步骤来优化表现。例如，神经网络反向传播技术（BackPropagation）来迭代模型各层的权重来优化模型整体表现。</li>
+<li>通过对比评估在验证集上的表现，我们可以选择最优的模型结构，选择训练时长。（比如，在过拟合之前停止训练。）</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/452087-af5f63dbeb9a0659.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="6-评估模型"><a href="#6-评估模型" class="headerlink" title="6.   评估模型"></a>6.   评估模型</h4><ul>
+<li>测试集。模型训练完毕之后，我们可以在测试集上评估其整体表现。</li>
+<li>基准（benchmark）数据集。我们可以在公开的基准数据集上测试，以对比我们与其他模型的性能。别忘了「交叉验证」思维，同时，需要对基准数据集的是否可靠进行评估。</li>
+<li>衡量模型的指标。针对不同任务，我们需要选择不同的指标（metrics）来评估模型。如果你了解「真阳性（True Positive）」、「False Negative（假阴性）」等概念，那么，在本例中，你应该明白，模型预测时出现了太多的「假阳性」的错误判断，并不是那么重要，因为如果你的朋友并不悲伤，但是给 TA 发送萌图，也并不影响，这是锦上添花。但是如果模型有太多的「假阴性（False Negative）」，那就表现差劲了，因为，我们不想错失那些上传了在图片里表现悲伤的朋友们。所以，我们更密切关注「 假阴性率（False Negative Rate）」这一指标。</li>
+<li>评估模型在不同用户群（sub-group）中的表现，我们需要保证，在不同的用户分群中，模型的表现都是一致的。比如，如果训练集的图片，大多来自女性，那么在预测其他性别朋友的图片时，模型的表现会很差。在部署模型前，我们需要测试，及时发现这些表现不均衡的问题。</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/452087-de52b9f123eb97ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="7-应用部署"><a href="#7-应用部署" class="headerlink" title="7.   应用部署"></a>7.   应用部署</h4><ul>
+<li>第一步</li>
+</ul>
+<p>为了确保模型高效及正确地部署到现实世界，请考虑模型的外在呈现：</p>
+<p>用户交互界面如何设计？模型预测结果如何在界面中视觉化呈现？<br>如何让用户上传图片？是否需要考虑相应地调整亮度？<br>如何获取用户实时反馈：如果某些图片中的用户情绪，我们的模型预测错了，如何收集这些错误的例子？</p>
+<ul>
+<li>第二步</li>
+</ul>
+<p>假如，这个产品原型冷启动之后，在朋友之间大受欢迎，我们想要提升（Scale it up）用户规模和群体。请考虑如何 适配新增的用户群：</p>
+<ul>
+<li>新增用户群：其他用户群？比如，老年人&amp;小孩，模型是否还适用？是否需要新增关于「老年人」&amp;「小孩」的数据集？甚至邀请「老年人」来做用研测试？</li>
+<li>与利益相关者沟通：随着应用的影响力范围规模增大，更多的利益相关者会参与进来，如何协同平衡各方的利益？</li>
+<li>用户隐私&amp;数据知情权：用户数据如何收集？如何使用？本例中，最开始，我们假设用户都知道了他们的图片会被收集，但如果我们提升了用户群体的规模，我们也需要让其他用户对自己的隐私数据是如何被收集/存储/处理的。</li>
+</ul>
+<p>当模型在现实中运转时，我们需要密切监控的表现，保证其朝着积极的方向在运行。<br>如果出现故障bugs或社会争议（比如，有人认为YouTube推荐系统存在政治偏见及用户内容的刻意诱导。<a href="https://www.fast.ai/2019/05/28/google-nyt-mohan/" target="_blank" rel="external">Was this Google Executive deeply misinformed or lying in the New York Times?</a>）</p>
+<p>结尾鸡汤：记住，世界在变，新问题每天降临，让我们用机器学习的集体智慧，来拥抱不确定吧。</p>
+<h1 id="Changelog"><a href="#Changelog" class="headerlink" title="Changelog"></a>Changelog</h1><p>2019.5.13 init<br>2019.5.15 add content<br>2019.5.17 finish draft<br>2019.7.06 edit<br>2019.7.09 publish</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/10/2019-04-10-plotly-colab/" rel="next" title="在Google Colab 中显示Plotly">
+                <i class="fa fa-chevron-left"></i> 在Google Colab 中显示Plotly
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/07/2019-06-07-ml-fp-fn/" rel="prev" title="「ML 笔记」- 假阳性&假阴性">
+                「ML 笔记」- 假阳性&假阴性 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Author"/>
+            
+              <p class="site-author-name" itemprop="name">Author</p>
+              <div class="site-description motion-element" itemprop="description">The journey is the reward.</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/adi0229" title="GitHub &rarr; https://github.com/adi0229" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:jiandi.huang@gmail.com" title="E-Mail &rarr; mailto:jiandi.huang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题：公众视角-gt-机器学习是「黑盒-amp-黑魔法」。"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">问题：公众视角 -> 机器学习是「黑盒&黑魔法」。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题：机器学习从业者-gt-缺乏人种多样性-gt-「女性-amp-黑人」是少数派"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">问题：机器学习从业者-> 缺乏人种多样性 -> 「女性&黑人」是少数派</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总流程：机器学习生命周期"><span class="nav-number">3.</span> <span class="nav-text">总流程：机器学习生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子-gt-一个类似朋友圈的-APP"><span class="nav-number">4.</span> <span class="nav-text">例子 -> 一个类似朋友圈的 APP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-定义问题-Problem-Definition"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">1.定义问题(Problem Definition)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-数据收集（Data-Collection）"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">2. 数据收集（Data Collection）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-数据集分割"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">3.数据集分割</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-定义模型"><span class="nav-number">4.0.0.4.</span> <span class="nav-text">4.  定义模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-训练模型"><span class="nav-number">4.0.0.5.</span> <span class="nav-text">5.   训练模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-评估模型"><span class="nav-number">4.0.0.6.</span> <span class="nav-text">6.   评估模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-应用部署"><span class="nav-number">4.0.0.7.</span> <span class="nav-text">7.   应用部署</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Changelog"><span class="nav-number">5.</span> <span class="nav-text">Changelog</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Author</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.3.7</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
