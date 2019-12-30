@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://adi0229.github.io/"/>
-  <updated>2019-12-30T15:19:38.271Z</updated>
+  <updated>2019-12-30T15:22:27.553Z</updated>
   <id>https://adi0229.github.io/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="https://adi0229.github.io/2019/12/30/2019-12-30-spotify-top50-EDA/"/>
     <id>https://adi0229.github.io/2019/12/30/2019-12-30-spotify-top50-EDA/</id>
     <published>2019-12-30T15:01:56.000Z</published>
-    <updated>2019-12-30T15:19:38.271Z</updated>
+    <updated>2019-12-30T15:22:27.553Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="数据分析-大众“耳感”的曲线"><a href="#数据分析-大众“耳感”的曲线" class="headerlink" title="数据分析-大众“耳感”的曲线"></a>数据分析-大众“耳感”的曲线</h2><h3 id="50-首歌曲里，大多数的“舞感”都蛮高，满分-100-分，大多都在-60分-90-分"><a href="#50-首歌曲里，大多数的“舞感”都蛮高，满分-100-分，大多都在-60分-90-分" class="headerlink" title="50 首歌曲里，大多数的“舞感”都蛮高，满分 100 分，大多都在 60分 - 90 分"></a><strong>50 首歌曲里，大多数的“舞感”都蛮高，满分 100 分，大多都在 60分 - 90 分</strong></h3><iframe src="https://nbviewer.jupyter.org/github/adi0229/ML-DL/blob/master/spotify_2019_top50.ipynb" width="1280" height="2000"></iframe> <h2 id="Dance-Pop-歌单"><a href="#Dance-Pop-歌单" class="headerlink" title="Dance-Pop 歌单"></a>Dance-Pop 歌单</h2><ul><li>boyfriend (with Social House)</li><li>Loco Contigo (feat. J. Balvin &amp; Tyga)</li><li>No Guidance (feat. Drake)</li><li>7 rings</li><li>Never Really Over</li><li>fuck, i’m lonely (with Anne-Marie) - from 13 R…</li><li>You Need To Calm Down</li><li>Shallow</li></ul><h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p>[Kaggele-DataSet-top50spotify2019] (<a href="https://www.kaggle.com/leonardopena/" target="_blank" rel="external">https://www.kaggle.com/leonardopena/</a>)</p><p><a href="https://zhuanlan.zhihu.com/p/33977558" target="_blank" rel="external">Python可视化 | Seaborn5分钟入门(一)——kdeplot和distplot</a></p><p><a href="https://www.kaggle.com/arpita28/analysis-of-spotify-trends" target="_blank" rel="external">Analysis of Spotify trends</a></p><h1 id="ChangeLog"><a href="#ChangeLog" class="headerlink" title="ChangeLog"></a>ChangeLog</h1><p>2019/12/30 init 分析+参考kernel修改 3h</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="大众“耳感”的曲线"><a href="#大众“耳感”的曲线" class="headerlink" title="大众“耳感”的曲线"></a>大众“耳感”的曲线</h2><h3 id="50-首歌曲里，大多数的“舞感”都蛮高，满分-100-分，大多都在-60分-90-分"><a href="#50-首歌曲里，大多数的“舞感”都蛮高，满分-100-分，大多都在-60分-90-分" class="headerlink" title="50 首歌曲里，大多数的“舞感”都蛮高，满分 100 分，大多都在 60分 - 90 分"></a><strong>50 首歌曲里，大多数的“舞感”都蛮高，满分 100 分，大多都在 60分 - 90 分</strong></h3><iframe src="https://nbviewer.jupyter.org/github/adi0229/ML-DL/blob/master/spotify_2019_top50.ipynb" width="780" height="2000"></iframe> <h2 id="Dance-Pop-歌单"><a href="#Dance-Pop-歌单" class="headerlink" title="Dance-Pop 歌单"></a>Dance-Pop 歌单</h2><ul><li>boyfriend (with Social House)</li><li>Loco Contigo (feat. J. Balvin &amp; Tyga)</li><li>No Guidance (feat. Drake)</li><li>7 rings</li><li>Never Really Over</li><li>fuck, i’m lonely (with Anne-Marie) - from 13 R…</li><li>You Need To Calm Down</li><li>Shallow</li></ul><h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p>[Kaggele-DataSet-top50spotify2019] (<a href="https://www.kaggle.com/leonardopena/" target="_blank" rel="external">https://www.kaggle.com/leonardopena/</a>)</p><p><a href="https://zhuanlan.zhihu.com/p/33977558" target="_blank" rel="external">Python可视化 | Seaborn5分钟入门(一)——kdeplot和distplot</a></p><p><a href="https://www.kaggle.com/arpita28/analysis-of-spotify-trends" target="_blank" rel="external">Analysis of Spotify trends</a></p><h1 id="ChangeLog"><a href="#ChangeLog" class="headerlink" title="ChangeLog"></a>ChangeLog</h1><p>2019/12/30 init 分析+参考kernel修改 3h</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;数据分析-大众“耳感”的曲线&quot;&gt;&lt;a href=&quot;#数据分析-大众“耳感”的曲线&quot; class=&quot;headerlink&quot; title=&quot;数据分析-大众“耳感”的曲线&quot;&gt;&lt;/a&gt;数据分析-大众“耳感”的曲线&lt;/h2&gt;&lt;h3 id=&quot;50-首歌曲里，大多数的“舞感”都
+        &lt;h2 id=&quot;大众“耳感”的曲线&quot;&gt;&lt;a href=&quot;#大众“耳感”的曲线&quot; class=&quot;headerlink&quot; title=&quot;大众“耳感”的曲线&quot;&gt;&lt;/a&gt;大众“耳感”的曲线&lt;/h2&gt;&lt;h3 id=&quot;50-首歌曲里，大多数的“舞感”都蛮高，满分-100-分，大多都在-60分
       
     
     </summary>
