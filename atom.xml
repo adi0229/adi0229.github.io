@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://adi0229.github.io/"/>
-  <updated>2020-01-02T12:00:37.818Z</updated>
+  <updated>2020-01-02T12:06:37.109Z</updated>
   <id>https://adi0229.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://adi0229.github.io/2020/01/02/2020-01-02-pandas-top25-tricks/"/>
     <id>https://adi0229.github.io/2020/01/02/2020-01-02-pandas-top25-tricks/</id>
     <published>2020-01-02T11:56:23.000Z</published>
-    <updated>2020-01-02T12:00:37.818Z</updated>
+    <updated>2020-01-02T12:06:37.109Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Pandas数据清理及分析的25项实用技巧（Tricks）"><a href="#Pandas数据清理及分析的25项实用技巧（Tricks）" class="headerlink" title="Pandas数据清理及分析的25项实用技巧（Tricks）"></a>Pandas数据清理及分析的25项实用技巧（Tricks）</h2><h3 id="Jupyter-代码笔记"><a href="#Jupyter-代码笔记" class="headerlink" title="Jupyter 代码笔记"></a>Jupyter 代码笔记</h3><p>一个学习笔记，根据 Data School 的 Kavin老师的YouTube视频，公开记录在此。</p><iframe src="https://nbviewer.jupyter.org/github/adi0229/ML-DL/blob/master/top_pandas_25_tricks.ipynb" width="1000" height="2000"></iframe> <h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p><a href="https://www.youtube.com/watch?v=RlIiVeig3hc" target="_blank" rel="external">My top 25 pandas tricks</a></p><p>[nbviewer] (<a href="https://nbviewer.jupyter.org/" target="_blank" rel="external">https://nbviewer.jupyter.org/</a>)</p><h1 id="ChangeLog"><a href="#ChangeLog" class="headerlink" title="ChangeLog"></a>ChangeLog</h1><p>2020/01/02 init  4h</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Pandas数据清理及分析的25项实用技巧（Tricks）"><a href="#Pandas数据清理及分析的25项实用技巧（Tricks）" class="headerlink" title="Pandas数据清理及分析的25项实用技巧（Tricks）"></a>Pandas数据清理及分析的25项实用技巧（Tricks）</h2><h3 id="Jupyter-代码笔记"><a href="#Jupyter-代码笔记" class="headerlink" title="Jupyter 代码笔记"></a>Jupyter 代码笔记</h3><p>一个学习笔记，根据 Data School 的 Kavin老师的YouTube视频，公开记录在此。</p><iframe src="https://nbviewer.jupyter.org/github/adi0229/ML-DL/blob/master/top_pandas_25_tricks.ipynb" width="880" height="2000"></iframe> <h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p><a href="https://www.youtube.com/watch?v=RlIiVeig3hc" target="_blank" rel="external">My top 25 pandas tricks</a></p><p><a href="https://nbviewer.jupyter.org/" target="_blank" rel="external">nbviewer</a></p><h1 id="ChangeLog"><a href="#ChangeLog" class="headerlink" title="ChangeLog"></a>ChangeLog</h1><p>2020/01/02 init  4h</p>]]></content>
     
     <summary type="html">
     
