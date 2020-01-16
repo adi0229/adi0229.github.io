@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://adi0229.github.io/"/>
-  <updated>2020-01-02T12:06:37.109Z</updated>
+  <updated>2020-01-02T12:07:09.302Z</updated>
   <id>https://adi0229.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://adi0229.github.io/2020/01/02/2020-01-02-pandas-top25-tricks/"/>
     <id>https://adi0229.github.io/2020/01/02/2020-01-02-pandas-top25-tricks/</id>
     <published>2020-01-02T11:56:23.000Z</published>
-    <updated>2020-01-02T12:06:37.109Z</updated>
+    <updated>2020-01-02T12:07:09.302Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Pandas数据清理及分析的25项实用技巧（Tricks）"><a href="#Pandas数据清理及分析的25项实用技巧（Tricks）" class="headerlink" title="Pandas数据清理及分析的25项实用技巧（Tricks）"></a>Pandas数据清理及分析的25项实用技巧（Tricks）</h2><h3 id="Jupyter-代码笔记"><a href="#Jupyter-代码笔记" class="headerlink" title="Jupyter 代码笔记"></a>Jupyter 代码笔记</h3><p>一个学习笔记，根据 Data School 的 Kavin老师的YouTube视频，公开记录在此。</p><iframe src="https://nbviewer.jupyter.org/github/adi0229/ML-DL/blob/master/top_pandas_25_tricks.ipynb" width="880" height="2000"></iframe> <h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p><a href="https://www.youtube.com/watch?v=RlIiVeig3hc" target="_blank" rel="external">My top 25 pandas tricks</a></p><p><a href="https://nbviewer.jupyter.org/" target="_blank" rel="external">nbviewer</a></p><h1 id="ChangeLog"><a href="#ChangeLog" class="headerlink" title="ChangeLog"></a>ChangeLog</h1><p>2020/01/02 init  4h</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Pandas数据清理及分析的25项实用技巧（Tricks）"><a href="#Pandas数据清理及分析的25项实用技巧（Tricks）" class="headerlink" title="Pandas数据清理及分析的25项实用技巧（Tricks）"></a>Pandas数据清理及分析的25项实用技巧（Tricks）</h2><h3 id="Jupyter代码笔记"><a href="#Jupyter代码笔记" class="headerlink" title="Jupyter代码笔记"></a>Jupyter代码笔记</h3><p>一个学习笔记，根据 Data School 的 Kavin老师的YouTube视频，公开记录在此。</p><iframe src="https://nbviewer.jupyter.org/github/adi0229/ML-DL/blob/master/top_pandas_25_tricks.ipynb" width="880" height="2000"></iframe> <h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p><a href="https://www.youtube.com/watch?v=RlIiVeig3hc" target="_blank" rel="external">My top 25 pandas tricks</a></p><p><a href="https://nbviewer.jupyter.org/" target="_blank" rel="external">nbviewer</a></p><h1 id="ChangeLog"><a href="#ChangeLog" class="headerlink" title="ChangeLog"></a>ChangeLog</h1><p>2020/01/02 init  4h</p>]]></content>
     
     <summary type="html">
     
@@ -44,9 +44,9 @@
     <link href="https://adi0229.github.io/2019/12/30/2019-12-30-spotify-top50-EDA/"/>
     <id>https://adi0229.github.io/2019/12/30/2019-12-30-spotify-top50-EDA/</id>
     <published>2019-12-30T15:01:56.000Z</published>
-    <updated>2020-01-01T15:12:55.456Z</updated>
+    <updated>2020-01-16T08:18:46.386Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="大众“耳感”的曲线"><a href="#大众“耳感”的曲线" class="headerlink" title="大众“耳感”的曲线"></a>大众“耳感”的曲线</h2><h3 id="50-首歌曲里，大多数的“舞感”都蛮高，满分-100-分，大多都在-60分-90-分"><a href="#50-首歌曲里，大多数的“舞感”都蛮高，满分-100-分，大多都在-60分-90-分" class="headerlink" title="50 首歌曲里，大多数的“舞感”都蛮高，满分 100 分，大多都在 60分 - 90 分"></a><strong>50 首歌曲里，大多数的“舞感”都蛮高，满分 100 分，大多都在 60分 - 90 分</strong></h3><iframe src="https://nbviewer.jupyter.org/github/adi0229/ML-DL/blob/master/spotify_2019_top50.ipynb" width="980" height="2000"></iframe> <h2 id="Dance-Pop-歌单"><a href="#Dance-Pop-歌单" class="headerlink" title="Dance-Pop 歌单"></a>Dance-Pop 歌单</h2><ul><li>boyfriend (with Social House)</li><li>Loco Contigo (feat. J. Balvin &amp; Tyga)</li><li>No Guidance (feat. Drake)</li><li>7 rings</li><li>Never Really Over</li><li>fuck, i’m lonely (with Anne-Marie) </li><li>You Need To Calm Down</li><li>Shallow</li></ul><h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p>[Kaggele-DataSet-top50spotify2019] (<a href="https://www.kaggle.com/leonardopena/" target="_blank" rel="external">https://www.kaggle.com/leonardopena/</a>)</p><p><a href="https://zhuanlan.zhihu.com/p/33977558" target="_blank" rel="external">Python可视化 | Seaborn5分钟入门(一)——kdeplot和distplot</a></p><p><a href="https://www.kaggle.com/arpita28/analysis-of-spotify-trends" target="_blank" rel="external">Analysis of Spotify trends</a></p><h1 id="ChangeLog"><a href="#ChangeLog" class="headerlink" title="ChangeLog"></a>ChangeLog</h1><p>2019/12/30 init 分析+参考kernel修改 3h</p><p>2019/12/31 调整 Jupyter notebook宽度 10min</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="大众“耳感”的曲线"><a href="#大众“耳感”的曲线" class="headerlink" title="大众“耳感”的曲线"></a>大众“耳感”的曲线</h2><h3 id="50-首歌曲里，大多数的“舞感”都蛮高，满分-100-分，大多都在-60分-90-分"><a href="#50-首歌曲里，大多数的“舞感”都蛮高，满分-100-分，大多都在-60分-90-分" class="headerlink" title="50 首歌曲里，大多数的“舞感”都蛮高，满分 100 分，大多都在 60分 - 90 分"></a><strong>50 首歌曲里，大多数的“舞感”都蛮高，满分 100 分，大多都在 60分 - 90 分</strong></h3><iframe src="https://nbviewer.jupyter.org/github/adi0229/ML-DL/blob/master/spotify_2019_top50.ipynb" width="880" height="2000"></iframe> <h2 id="Dance-Pop-歌单"><a href="#Dance-Pop-歌单" class="headerlink" title="Dance-Pop 歌单"></a>Dance-Pop 歌单</h2><ul><li>boyfriend (with Social House)</li><li>Loco Contigo (feat. J. Balvin &amp; Tyga)</li><li>No Guidance (feat. Drake)</li><li>7 rings</li><li>Never Really Over</li><li>fuck, i’m lonely (with Anne-Marie) </li><li>You Need To Calm Down</li><li>Shallow</li></ul><h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p>[Kaggele-DataSet-top50spotify2019] (<a href="https://www.kaggle.com/leonardopena/" target="_blank" rel="external">https://www.kaggle.com/leonardopena/</a>)</p><p><a href="https://zhuanlan.zhihu.com/p/33977558" target="_blank" rel="external">Python可视化 | Seaborn5分钟入门(一)——kdeplot和distplot</a></p><p><a href="https://www.kaggle.com/arpita28/analysis-of-spotify-trends" target="_blank" rel="external">Analysis of Spotify trends</a></p><h1 id="ChangeLog"><a href="#ChangeLog" class="headerlink" title="ChangeLog"></a>ChangeLog</h1><p>2019/12/30 init 分析+参考kernel修改 3h</p><p>2019/12/31 调整 Jupyter notebook宽度 10min</p>]]></content>
     
     <summary type="html">
     
