@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://adi0229.github.io/"/>
-  <updated>2020-01-02T12:07:09.302Z</updated>
+  <updated>2020-01-16T08:56:42.219Z</updated>
   <id>https://adi0229.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>舞！舞！舞！Spotify十年金曲</title>
+    <link href="https://adi0229.github.io/2020/01/09/2020-01-16-spotify-2010-2019/"/>
+    <id>https://adi0229.github.io/2020/01/09/2020-01-16-spotify-2010-2019/</id>
+    <published>2020-01-09T08:21:26.000Z</published>
+    <updated>2020-01-16T08:56:42.219Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Spotify十年热歌"><a href="#Spotify十年热歌" class="headerlink" title="Spotify十年热歌"></a>Spotify十年热歌</h2><p>上次，笔者简单分析了 Spotify 在去年2019的流行歌曲。这一次，数据的广度更宽了，多了 9 年的数据，也就是上一个十年的数据。正好做一个交叉验证。</p><h3 id="流行舞曲（dance-pop）依然是最火的歌曲类型。"><a href="#流行舞曲（dance-pop）依然是最火的歌曲类型。" class="headerlink" title="流行舞曲（dance pop）依然是最火的歌曲类型。"></a><strong>流行舞曲（dance pop）依然是最火的歌曲类型。</strong></h3><p><a href="https://colab.research.google.com/gist/adi0229/107078b6cdd7dfc57dc2cb88d0b8685f/spotify_2010_2019_top.ipynb" target="_blank" rel="external">Jupyter笔记本-在 Colab 打开</a></p><p>(nbviwer出错，无法上传。下次再试)</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Spotify十年热歌&quot;&gt;&lt;a href=&quot;#Spotify十年热歌&quot; class=&quot;headerlink&quot; title=&quot;Spotify十年热歌&quot;&gt;&lt;/a&gt;Spotify十年热歌&lt;/h2&gt;&lt;p&gt;上次，笔者简单分析了 Spotify 在去年2019的流行歌曲。这一
+      
+    
+    </summary>
+    
+    
+      <category term="数据" scheme="https://adi0229.github.io/tags/%E6%95%B0%E6%8D%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>学习笔记-Pandas数据分析的25项实用技巧</title>
@@ -462,27 +485,6 @@
     
     
       <category term="data" scheme="https://adi0229.github.io/tags/data/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://adi0229.github.io/2017/07/16/2017-07-16-flint/"/>
-    <id>https://adi0229.github.io/2017/07/16/2017-07-16-flint/</id>
-    <published>2017-07-16T11:22:57.000Z</published>
-    <updated>2017-08-04T03:39:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="flint-can-blaze"><a href="#flint-can-blaze" class="headerlink" title="flint can blaze."></a>flint can blaze.</h1><p>Just trying some cool stuff in digital world.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;flint-can-blaze&quot;&gt;&lt;a href=&quot;#flint-can-blaze&quot; class=&quot;headerlink&quot; title=&quot;flint can blaze.&quot;&gt;&lt;/a&gt;flint can blaze.&lt;/h1&gt;&lt;p&gt;Just trying some
-      
-    
-    </summary>
-    
     
   </entry>
   
