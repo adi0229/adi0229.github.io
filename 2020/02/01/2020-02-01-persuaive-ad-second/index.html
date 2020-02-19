@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="图片来源：豆瓣电影 说到「广告高手」，我首先想起的是美剧「广告狂人」的主角，剧中的他，成熟稳健，在旧时代的美国广告界，如鱼得水，潇洒自如。 &amp;gt;1960年代，美国的广告业步入全盛时代，位于曼哈顿的麦迪逊大道有数百家广告公司，斯特林·库帕公司堪称行业中的佼佼者。创意总监唐·德雷柏（乔·哈姆 Jon Hamm 饰）面容英俊，体格健硕，足智多谋，仿佛广告业中的007。—《广告狂人》剧情简介 但他毕">
+<meta name="keywords" content="广告">
+<meta property="og:type" content="article">
+<meta property="og:title" content="广告有效的元分析-读《广告说服力》(二)">
+<meta property="og:url" content="https://adi0229.github.io/2020/02/01/2020-02-01-persuaive-ad-second/index.html">
+<meta property="og:site_name" content="电光石火">
+<meta property="og:description" content="图片来源：豆瓣电影 说到「广告高手」，我首先想起的是美剧「广告狂人」的主角，剧中的他，成熟稳健，在旧时代的美国广告界，如鱼得水，潇洒自如。 &amp;gt;1960年代，美国的广告业步入全盛时代，位于曼哈顿的麦迪逊大道有数百家广告公司，斯特林·库帕公司堪称行业中的佼佼者。创意总监唐·德雷柏（乔·哈姆 Jon Hamm 饰）面容英俊，体格健硕，足智多谋，仿佛广告业中的007。—《广告狂人》剧情简介 但他毕">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XGpeily1gbzhurxb1jj30cn09udh7.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XGpeily1gbzi5kmnyij30yg0h37a9.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XGpeily1gc1vkeea5tj30f40a4mx5.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XGpeily1gbzppc98k7j30k70kk0sz.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XGpeily1gc1v5jvvzzj30bo05u74e.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XGpeily1gc1v642g6aj30go0aoaax.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XGpeily1gc1v6umtdmj30rs0fndgv.jpg">
+<meta property="og:updated_time" content="2020-02-19T13:20:40.089Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="广告有效的元分析-读《广告说服力》(二)">
+<meta name="twitter:description" content="图片来源：豆瓣电影 说到「广告高手」，我首先想起的是美剧「广告狂人」的主角，剧中的他，成熟稳健，在旧时代的美国广告界，如鱼得水，潇洒自如。 &amp;gt;1960年代，美国的广告业步入全盛时代，位于曼哈顿的麦迪逊大道有数百家广告公司，斯特林·库帕公司堪称行业中的佼佼者。创意总监唐·德雷柏（乔·哈姆 Jon Hamm 饰）面容英俊，体格健硕，足智多谋，仿佛广告业中的007。—《广告狂人》剧情简介 但他毕">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005XGpeily1gbzhurxb1jj30cn09udh7.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="电光石火" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://adi0229.github.io/2020/02/01/2020-02-01-persuaive-ad-second/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>广告有效的元分析-读《广告说服力》(二) | 电光石火</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">电光石火</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">阿迪的博客</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://adi0229.github.io/2020/02/01/2020-02-01-persuaive-ad-second/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Author"/>
+      <meta itemprop="description" content="The journey is the reward."/>
+      <meta itemprop="image" content="/images/avatar.png"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="电光石火"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">广告有效的元分析-读《广告说服力》(二)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-01 11:22:43" itemprop="dateCreated datePublished" datetime="2020-02-01T11:22:43+08:00">2020-02-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-19 21:20:40" itemprop="dateModified" datetime="2020-02-19T21:20:40+08:00">2020-02-19</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://ww1.sinaimg.cn/large/005XGpeily1gbzhurxb1jj30cn09udh7.jpg" alt="undefined"></p>
+<p>图片来源：<a href="https://movie.douban.com/photos/photo/1384330832/" target="_blank" rel="external">豆瓣电影</a></p>
+<p>说到「广告高手」，我首先想起的是美剧「广告狂人」的主角，剧中的他，成熟稳健，在旧时代的美国广告界，如鱼得水，潇洒自如。</p>
+<p>&gt;<br>1960年代，美国的广告业步入全盛时代，位于曼哈顿的麦迪逊大道有数百家广告公司，斯特林·库帕公司堪称行业中的佼佼者。创意总监唐·德雷柏（乔·哈姆 Jon Hamm 饰）面容英俊，体格健硕，足智多谋，仿佛广告业中的007。—《广告狂人》剧情简介</p>
+<p>但他毕竟是影视人物，并没有活在现实之中。</p>
+<p>读了《广告说服力》，我也笑言：在现实里，作者 J. Scott Armstrong才是我眼里的「广告狂人」。</p>
+<p>为什么说他是广告狂人呢，因为：</p>
+<blockquote>
+<p>斯科特·阿姆斯特朗耗时16年，得到80多人的协助，才写成《广告说服力》。《广告说服力》总结了近3000项实证研究的结果和50本广告类图书的精华，在实证证据的基础上提出195条广告原理，条分缕析，事理结合，操作性强。–豆瓣图书 <a href="https://book.douban.com/subject/26851734/" target="_blank" rel="external">《广告说服力》</a> </p>
+</blockquote>
+<h2 id="广告狂人-amp-斯科特-阿姆斯特朗（J-Scott-Armstrong）"><a href="#广告狂人-amp-斯科特-阿姆斯特朗（J-Scott-Armstrong）" class="headerlink" title="广告狂人 &amp; 斯科特-阿姆斯特朗（J. Scott Armstrong）"></a>广告狂人 &amp; 斯科特-阿姆斯特朗（J. Scott Armstrong）</h2><p><img src="http://ww1.sinaimg.cn/large/005XGpeily1gbzi5kmnyij30yg0h37a9.jpg" alt="undefined"></p>
+<p>斯科特·阿姆斯特朗的维基百科页面是<a href="https://www.wikiwand.com/en/J._Scott_Armstrong" target="_blank" rel="external">J. Scott Armstrong</a>，是预测、市场营销和广告领域的专家，全球营销大会（Global Marketing Conference）甚至以他为名，设立了「阿姆斯特朗」营销研究奖。从谷歌学术的<a href="https://scholar.google.com/citations?user=XG9ZedQAAAAJ&amp;hl=zh-CN" target="_blank" rel="external">个人主页</a>可知，截止2020年2月，他的论文引用总数到了36645，H指数73，颇受同行认可。</p>
+<p>在广告营销领域，他的观点，更值得信赖。</p>
+<p>豆瓣上有人觉得这本书「很厚、很贵，很啰嗦，废话也很多。」但我不以为然，这不影响我的阅读。我又不用一字一句的全部读完，我挑重点读。</p>
+<p>读书的人，各持己见，见仁见智。也有人说：</p>
+<blockquote>
+<p>一本基于实证研究的广告说服力，对于非广告相关的人来说，更像一本文案写作指南，适用于PPT制作、演讲、公众号写作等。<a href="https://book.douban.com/subject/26851734/comments/hot?p=2" target="_blank" rel="external">豆友天生卷毛</a></p>
+</blockquote>
+<p>而且，还有其他读者，暗自表示「不想让对手看到，大家都有默契地打一星」。</p>
+<p>这本书最好的地方在于，他用了元分析的方法，「鸟瞰」广告研究的全景。</p>
+<h2 id="实证研究-amp-证据等级"><a href="#实证研究-amp-证据等级" class="headerlink" title="实证研究 &amp; 证据等级"></a>实证研究 &amp; 证据等级</h2><p><img src="http://ww1.sinaimg.cn/large/005XGpeily1gc1vkeea5tj30f40a4mx5.jpg" alt="undefined"></p>
+<p>图片来源：<a href="http://blog.sina.com.cn/s/blog_51b8f5c10102w5oz.html" target="_blank" rel="external">网络</a></p>
+<p>人们在意见不合，争论不休时，口里常会质问对方：证据呢？</p>
+<p>各种观点、理论和方法论，都需要证据，来证明自己。</p>
+<p>这本书就是基于实证（Evidence-Base Principles）的研究，它回答的是，什么样的广告更有说服力？</p>
+<p>在每一个广告原理之后，阿姆斯特朗都按照学术引用规范，给出了相关的参考文献，读者可以根据需求，自行在网上查阅论文，了解某个广告原理的使用场景和说服效果。</p>
+<p>而且，阿姆斯特朗不仅呈现了大量的广告研究证据，他还告诉读者，不同的证据，它们的科学效力是不同的。这就是现代人拥有理性，所必需了解的思维「证据层级」。</p>
+<p>开篇明义，书里对证据的效力做了分类和排序。</p>
+<p>关于广告的原理，相关的证据可以分为两种，<strong>一种是随机观察（Casual observation），一种是实证性证据（Empirical evidence）</strong>。</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XGpeily1gbzppc98k7j30k70kk0sz.jpg" alt="undefined"></p>
+<p>随意的观察，是指根据常见的做法以及专家的经验之谈，在简单场景之下，或者是道理很浅显时，这种常识是有用的。</p>
+<blockquote>
+<p>我依赖于许多与典型的广告实践相关的资源。 这六本书特别有用: Presbrey (1929) ，《广告的历史与发展》(The History and Development of Advertising) ; Mayer (1958) ，《美国麦迪逊大道》(Madison Avenue USA) ; Pope (1983) ，《现代广告的形成》(The Making of Modern Advertising) ; Goodrum and Dalrymple (1990) ，《美国广告》(Advertising in America) ; Mayer (1991) ，《无论麦迪逊大道发生了什么》 ; Fox (1997) ，《镜子制造者》。</p>
+<p>当广告客户没有或使用准确、及时、总结良好的反馈信息时，随意的观察就会失败。 此外，当涉及到许多条件时，基于典型实践的知识是无效的。 确定每个条件与广告效果之间的关系变得非常困难。</p>
+<p>最后，当短期的成功与长期的结果发生冲突时，典型的做法会受到影响。 例如，广告商可能会了解到，在特定的广告活动中，某种特定的做法可以有效地提高短期销售额。 然而，要确定这种做法是否能改善长期利润和客户关系则更加困难。</p>
+</blockquote>
+<p>但是，在复杂的媒介和人群场景之下，它提供的证据，比较弱。相比而言，实证的数据，就更有说服力了。</p>
+<p>其中，有一种证据来自非实验数据（Non-experimental data），顾名思义，它是指在非实验场景之下，所观察和统计的数据。</p>
+<p>我们的一生，都会观看数不清的手表广告，但是很少有人知道广告里的手表显示的时间。</p>
+<p>阿姆斯特朗告诉读者，如果有意识地记录下手表广告里，手表指向的时间，我们会发现几乎所有的手表都显示同一个时间。这就是完整的观察和记录的作用，它比随机的查看个别广告和行业人士的只言片语，提供了更多的量化证据。</p>
+<p>比如说，不少职业篮球队的主教练，喜欢分析比赛数据，来辅助他们的决策。书里援引了华尔街日报讲述的一组数据，在2009-2010赛季，设有专职数据统计员的NBA球队，胜率是59%，而没有数据统计员的NBA球队，在 958 场比赛中，胜率只有41%。</p>
+<p>相比于不加干涉的非实验数据，实验数据更能对比不同的广告变量的效果，他们是更高层级的证据。</p>
+<p>介于两者之间的数据，叫做准实验数据（Quasi-experimental data）：</p>
+<blockquote>
+<p>准实验是指研究设计控制一些变量，但不是所有变量，以比较不同的广告方式。 例如，一个准实验研究可能会比较同一产品、品牌和媒体的两个广告。 缺点是有些因素不是恒定不变的。 然而，准实验的方法可以有价值的研究说服性广告，即使在某些情况下，不受控制的变量可能会影响有效性。</p>
+</blockquote>
+<p>再往上，更高阶的证据，那就是实验数据（Experimental data）：</p>
+<blockquote>
+<p>在实验研究中，所有关键因果变量的值都是受控的。 例如，一个想知道幽默是否有说服力的广告商(或研究人员)制作了两个完全相同的广告，只是其中一个版本是幽默的，而另一个版本不是。 这些广告展示给相似的人(由一个随机过程分配)在相同的情况下，他们的反应，被记录下来。 这是评估原则效果的最有效方法。</p>
+</blockquote>
+<p>从图可知，元分析（Meta-Analyses）在证据种类里，是最强有力的证据，属于最高层级的证据。</p>
+<blockquote>
+<p>最好的证据，也是本书提供的大部分证据的来源，是元分析，它涉及根据给定原则正式收集和分析所有相关证据，特别是当证据涉及实验室和现场实验时。 元分析充分披露了研究人员如何搜索研究，编码结果，并总结结果。 元分析的结果比传统的综述更有科学效力(Beaman 1991)。 </p>
+</blockquote>
+<h2 id="做广告？先认识产品"><a href="#做广告？先认识产品" class="headerlink" title="做广告？先认识产品"></a>做广告？先认识产品</h2><p>做出好的广告，就像「带着链锁跳舞」，在做广告之前，广告人都需要对明白某个广告的前提条件，其中就包括对将要宣传的产品的了解。</p>
+<p>书里给出了两种认知产品的角度，也给出了这两种切入点的相关综述研究。</p>
+<ul>
+<li><p>产品属于高卷入产品，还是低卷入产品？</p>
+</li>
+<li><p>产品属于功利型产品，还是享乐型产品？</p>
+</li>
+</ul>
+<h3 id="产品，是高卷入，还是低卷入？"><a href="#产品，是高卷入，还是低卷入？" class="headerlink" title="产品，是高卷入，还是低卷入？"></a>产品，是高卷入，还是低卷入？</h3><p><img src="http://ww1.sinaimg.cn/large/005XGpeily1gc1v5jvvzzj30bo05u74e.jpg" alt="undefined"></p>
+<p>图片来源：<a href="http://www.sohu.com/a/169772234_697221" target="_blank" rel="external">网络</a></p>
+<p>专家们用「低卷入（short-circuit）」和「高卷入（long-circuit）两种分类来区分他们要推销的产品。  </p>
+<p>低卷入的产品指的是，消费者在决定是否购买时，不那么费脑的。比如路边便利店旁几块钱的打火机、纸巾和饮料。  </p>
+<p>高卷入的产品指的是，消费者在决定是否购买时，左思右想，甚至耗费几个月以上的时间精力的产品，比如某个学费几十万以上的海外硕博学位或者一线城市价格几百万的学区房。  </p>
+<p>这里，容易得到启发的是，消费者面「低卷入产品」的广告，也是「低卷入阅读」或者是「低卷入注意」，他们不会想太多，就像一个「认知吝啬鬼」，懒得仔细斟酌，很容易被误导带偏。</p>
+<p>比如，书中第21页介绍了三个「有坑」的问题：</p>
+<blockquote>
+<p>一个球棒和一个球总共花费1.10美元。 球棒比球贵一美元。 这个球多少钱？</p>
+<p>如果5台机器5分钟生产5个零件，那么100台机器生产100个零件需要多长时间？</p>
+<p>在一个湖里，有一片睡莲叶。每天，睡莲的规模都会扩大一倍。如果睡莲需要48天才能覆盖整个湖，那么睡莲需要多长时间才能覆盖湖的一半？</p>
+</blockquote>
+<p>不知道，你看了这些问题，第一反应的答案是什么呢？</p>
+<p>正确答案分别是：0.05美元、5分钟和47天。</p>
+<p>调研结果显示，在美国常青藤高材生之中，包括3235个人，在不限时的条件下，只有17%的人三题全对，32%的人三题全错。如果他们精心下来做题，不难答对，但是在不假思索和不耐烦的状况下，容易答错。</p>
+<p>我亦是如此。对第一道题，一开始，我这么算：1.10-1.0=0.10。在慢慢审视之后，就像《思考，快与慢》里面说的「慢思考」那样，我逐渐放慢扫视的速度，用纸笔写出推算步骤：</p>
+<ul>
+<li>球价格=X</li>
+<li>球棒价格=X+1</li>
+<li>X+X+1=1.1</li>
+<li>2X+1=1.1</li>
+<li>2X=0.1</li>
+<li>X=0.05</li>
+</ul>
+<p>这才得出了对的答案。</p>
+<p>由此可见，人们认识事物时，经常习惯偷懒，导致认知偏差的出现。从广告营销的角度，良心企业在做推广时，可以引导受众的第一直觉。反过来，作为消费者，应该知道：理性心理学的专家斯坦诺维奇，他对人们提出了警告，要小心精明的广告奸商，他们为了多赚钱，正在利用你的直觉来套利。</p>
+<h3 id="产品，是功利型，还是享乐型？"><a href="#产品，是功利型，还是享乐型？" class="headerlink" title="产品，是功利型，还是享乐型？"></a>产品，是功利型，还是享乐型？</h3><p>有些产品，消费者购买它们，主要是为了搞定具体的问题。 这些产品被称为「实用产品」。例如口罩、洗手液、酒精和电钻。  </p>
+<p>相比之下，有些产品不用来解决具体问题，买来是更多是为了享受，这些被称为「享乐」产品。例如艺术画、游戏手办和进口红酒。</p>
+<p>一些20世纪80、90年代的研究发现，让人们对891条电视广告进行独立评分，判断这些产品是功利性的还是享乐性的，94%的广告都得到了一致的编码。这说明，在那个年代，很多产品都可以明显归入「功利型」或者「娱乐型」。</p>
+<p>但有些产品介于两者之间。比如说，我所购买的「肩颈按摩加热毯」，最初是为了解决肩颈不适的痛点，在使用时，也有享受的感觉。</p>
+<p>我想，一些平台型互联网产品，比如国民应用微信，它号称「微信，是一种生活方式」，几乎囊括了生活的方方面面，是难以区分是功利还是享乐的。</p>
+<p>但是，颗粒度细化之后，对于它的某个功能，有些还是可以明显区分的。比如说「水电费」这个功能，就是典型的功利型功能。小游戏「打飞机」就是「娱乐型」功能。</p>
+<p>当然，如果娱乐产品能够实用起来，那更是一举两得。</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XGpeily1gc1v642g6aj30go0aoaax.jpg" alt="undefined"></p>
+<p>Switch的「健身环大冒险」，既能娱乐，也能健身。</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XGpeily1gc1v6umtdmj30rs0fndgv.jpg" alt="undefined"></p>
+<p>不管怎样，区分「实用」和「享乐」，可以是一种洞察产品的切入点。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>想要知道哪些广告原理有用，查看广告研究的元分析，这些证据最靠谱。</p>
+<p>黄建迪</p>
+<p>2020/2/19</p>
+<p>(版权声明： 本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处。)</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/广告/" rel="tag"><i class="fa fa-tag"></i> 广告</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/01/2020-02-01-persuaive-ad-second~/" rel="next" title="广告有效的元分析-读《广告说服力》(二)">
+                <i class="fa fa-chevron-left"></i> 广告有效的元分析-读《广告说服力》(二)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/05/2020-02-02-ad-use-guilt/" rel="prev" title="内疚与宣传说服《广告说服力》笔记（一）">
+                内疚与宣传说服《广告说服力》笔记（一） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Author"/>
+            
+              <p class="site-author-name" itemprop="name">Author</p>
+              <div class="site-description motion-element" itemprop="description">The journey is the reward.</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/adi0229" title="GitHub &rarr; https://github.com/adi0229" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:jiandi.huang@gmail.com" title="E-Mail &rarr; mailto:jiandi.huang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#广告狂人-amp-斯科特-阿姆斯特朗（J-Scott-Armstrong）"><span class="nav-number">1.</span> <span class="nav-text">广告狂人 & 斯科特-阿姆斯特朗（J. Scott Armstrong）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实证研究-amp-证据等级"><span class="nav-number">2.</span> <span class="nav-text">实证研究 & 证据等级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#做广告？先认识产品"><span class="nav-number">3.</span> <span class="nav-text">做广告？先认识产品</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#产品，是高卷入，还是低卷入？"><span class="nav-number">3.1.</span> <span class="nav-text">产品，是高卷入，还是低卷入？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#产品，是功利型，还是享乐型？"><span class="nav-number">3.2.</span> <span class="nav-text">产品，是功利型，还是享乐型？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Author</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.3.7</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
